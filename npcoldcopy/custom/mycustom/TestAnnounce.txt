@@ -1,0 +1,171 @@
+
+
+prontera,166,224,6	script	MVP Ranking	10028,{
+	mes "[MVP Ranking]";
+	mes "I have all the score of player who kill MVP";
+	mes "If you want to know your MVP rankings I will help you";
+	mes "^0000FF[General Info]^000000";
+	
+			next;
+	
+	set .@menu$,"Overall Ranking:My Ranking";
+	if(getgmlevel()>=99){
+		set .@menu$, .@menu$+":GM Reset";
+	}
+	switch(select(.@menu$)) {
+		case 1:
+			mes "Overall Ranking";
+			set .@score,query_sql("SELECT `char`.name,`global_reg_value`.value FROM `global_reg_value` INNER JOIN `char` ON `global_reg_value`.char_id = `char`.char_id WHERE `global_reg_value`.str = 'MVPScore' ORDER BY `global_reg_value`.value DESC LIMIT 25",.@name$,.@value);
+			for(set .@i,0; .@i<getarraysize(.@score);set .@i,.@i+1){
+				mes "^0000FFRanked"+(.@i+1)+". ^000000:  ^808000"+.@name$[.@i] +"^000000 - ^CC6633"+.@value[.@i]+"^000000";
+			}
+			deletearray .@name$,getarraysize(.@name$);
+			deletearray .@value,getarraysize(.@value);
+			close;
+		case 2:
+			mes "My Ranking";
+			set .@temp,query_sql("SELECT value FROM `global_reg_value` WHERE str='MVPScore' AND char_id="+ getcharid(0),.@tempScore);
+			debugmes "the tempScore is "+.@tempScore[0]+" and .@temp size is "+.@temp;
+			if(.@temp==-1){
+				mes "Hi Mr/Mrs "+strcharinfo(0)+" you are unranked yet";
+				close;
+			}
+			set .@rank,query_sql("SELECT `char`.name,`global_reg_value`.value FROM `global_reg_value` INNER JOIN `char` ON `global_reg_value`.char_id = `char`.char_id WHERE `global_reg_value`.str = 'MVPScore' AND `global_reg_value`.value <="+.@tempScore[0]+" ORDER BY `global_reg_value`.value ASC",.@name$,.@value);
+			if(strcharinfo(0) == .@name$[0]){
+				mes "^000000Hi Mr/Mrs  ^808000"+.@name$+" Your are ^0000FFRanked "+.@rank+" ^000000 with score - ^CC6633"+.@value[0]+"^000000";
+			}else{
+				mes "got error here the name is "+.@name$[0];
+			}
+			deletearray .@name$,getarraysize(.@name$);
+			deletearray .@value,getarraysize(.@value);
+			close;
+		case 3:
+			mes "Are you sure you want to reset the Ranking? GM "+strcharinfo(0);
+			menu "Yes",-,"No",D_CLOSE;
+			mes "Ops GM";
+			query_sql "DELETE FROM `global_reg_value` WHERE str='MVPScore'";
+			close;
+	}
+	
+	D_CLOSE:
+		mes "Good bye "+strcharinfo(0);
+		close;
+		end;
+	
+}
+
+-	script	AnnounceMVP	-1,{
+//AddMVPPoint(<ModID>,<RewardPoint>),
+//AddExcludeMap(<MapName>,<2ndMapName>)
+/*function f8000{
+
+}*/
+function AddMVPPoint{
+		if(getmonsterinfo(getarg(0),1)==-1){
+			debugmes "Error no such monster"+getarg(0);
+		}else{
+			//debugmes "Size of .@monster["+.@i+"] is "+getarraysize(.monster)+"with args ("+getarg(.@i)+") point ("+getarg(.@i+1) ;
+			setarray.monster[getarraysize(.monster)],getarg(0),getarg(1);
+		}
+	copyarray getd(".mvpPoint"),.monster[0],getarraysize(.monster);
+	
+	return;
+}
+function AddExcludeMap{
+	for(set .@i,0;.@i<getargcount();set .@i,.@i+1){
+	setarray .@maps$[.@i],getarg(.@i);
+	}
+	copyarray getd(".mapExclude$"),.@maps$[0],getarraysize(.@maps$);
+	return;
+}
+
+
+function f0098{
+	copyarray .@tempmap$,getd(".mapExclude$"),getarraysize(getd(".mapExclude$"));
+	/*for(set .@i,0;.@i<getarraysize(.@tempmap$);set .@i,.@i+1){
+		debugmes "MapName ["+.@i+"] "+.@tempmap$[.@i];
+	}*/
+	for(set .@i,0;.@i<getarraysize(.@tempmap$);set .@i,.@i+1){
+		if(getarg(0)==.@tempmap$[.@i]){
+			return 1;
+		}
+	}
+	return 0;
+}
+function f0099{
+	copyarray .@tempMVP,getd(".mvpPoint"),getarraysize(getd(".mvpPoint"));	
+	/*for(set .@i,0;.@i<getarraysize(.@tempMVP);set .@i,.@i+2){
+		debugmes "Monster ["+.@i+"] "+.@tempMVP[.@i]+" Score is "+.@tempMVP[.@i+1];
+	}*/
+	for(set .@i,0;.@i<getarraysize(.@tempMVP);set .@i,.@i+2){
+		if(getarg(0)==.@tempMVP[.@i])
+			return .@tempMVP[.@i+1];
+	}
+}
+OnInit:
+	AddExcludeMap("prontera","morroc","pvp_n2_1-1","gvg_n2_3-1");
+	AddMVPPoint(1511,3);// amonra
+	AddMVPPoint(1647,10);//sinXeremes
+	AddMVPPoint(1785,4);//atroce
+	AddMVPPoint(1630,4);//bacsojin
+	AddMVPPoint(1039,5);//baphomet
+	AddMVPPoint(1874,10);//beelzebub
+	AddMVPPoint(2068,4);//boitata
+	AddMVPPoint(1272,3);//darklord
+	AddMVPPoint(1719,5);//detale
+	AddMVPPoint(1046,1);//doppelganger
+	AddMVPPoint(1389,1);//dracula
+	AddMVPPoint(1112,1);//drake
+	AddMVPPoint(1115,1);//eddga
+	AddMVPPoint(1418,3);//evilsnakelord
+	AddMVPPoint(1871,7);//fallenbishop
+	AddMVPPoint(1252,1);//garm
+	AddMVPPoint(1768,8);//gloom
+	AddMVPPoint(1086,1);//GTB
+	AddMVPPoint(1885,2);//gopinich
+	AddMVPPoint(1649,10);//highpriest
+	AddMVPPoint(1651,10);//highwizard
+	AddMVPPoint(1832,9);//ifrit
+	AddMVPPoint(1492,2);//samurai
+	AddMVPPoint(1734,6);//kiel
+	AddMVPPoint(1251,1);//stormyknight
+	AddMVPPoint(1779,7);//ktullanux
+	AddMVPPoint(1688,4);//ladytanee
+	AddMVPPoint(2156,5);//leak
+	AddMVPPoint(1646,10);//lordknight
+	AddMVPPoint(1373,2);//lordofdeath
+	AddMVPPoint(1147,1);//maya
+	AddMVPPoint(1059,1);//mistress
+	AddMVPPoint(1150,1);//moonlight
+	AddMVPPoint(2022,8);//nidhoggr's)shadow
+	AddMVPPoint(1087,2);//orchero
+	AddMVPPoint(1190,3);//orclord
+	AddMVPPoint(1038,2);//osiris
+	AddMVPPoint(1157,2);//pharaoh
+	AddMVPPoint(1159,1);//phreeoni
+	AddMVPPoint(1623,4);//RSX
+	AddMVPPoint(1650,10);//sniper
+	AddMVPPoint(1583,1);//TGK
+	AddMVPPoint(1708,6);//thanatos
+	AddMVPPoint(1312,2);//turtlegeneral
+	AddMVPPoint(1751,9);//valkryierandgris
+	AddMVPPoint(1685,6);//vesper
+	AddMVPPoint(1648,10);//whitesmith
+	AddMVPPoint(1917,9);//woundedmorroc
+	AddMVPPoint(1658,3);//ygnizem
+
+	end;
+
+OnNPCKillEvent:
+	if(f0098(strcharinfo(3))==0){
+		if(getmonsterinfo(killedrid,MOB_MVPEXP)){
+			announce "Congraz to "+strcharinfo(0)+" just killed "+getmonsterinfo(killedrid,0),bc_all|bc_yellow;
+			set MVPScore,MVPScore+f0099(killedrid);
+			announce "Score "+MVPScore,bc_all|bc_blue;
+			//f0098();
+			//f0099();
+			soundeffect "1_KS1.wav",0;
+		}
+	}
+	end;
+}

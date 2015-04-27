@@ -1,0 +1,182 @@
+//===== Custom Headgears Script =======================================
+//= Custom Headgears and Donations
+//===== By ===================================================
+//= Toby
+//===== Version ==============================================
+//=1.0
+//============================================================
+
+
+prontera.gat,234,65,4	script	Wings NPC	105,{
+
+mes "[^5533FFWings NPC^000000]";
+mes "Welcome to Prontera, I am the Wing Quest NPC in charge of the royal quest.";
+mes "There are Quests please chose the one you most like.";
+next;
+menu "Gods Angel Wings",godswing,"Pink Wings",pinkwing,"Demon Wings",demwig,"Devil Wings",dvwings,"Fire Dragon Wings",fdwings,"Dragon Wings",dragwings,"Nothing",ende;
+
+godswing:
+mes "[^5533FFWings NPC^000000]";
+mes "The Gods Angel Wing quest consists of the next items:";
+mes "100 Feather of Birds";
+mes "100 Fluffs";
+mes "1 Angel Wings";
+mes "50 Holy Water";
+mes "100 Rough Wind";
+mes "100 Flame Heart";
+mes "100 Mystic Frozen";
+mes "100 Great Nature";
+mes "1,000,000z";
+next;
+if(countitem(916) < 100 || countitem(914) < 100 || countitem(2254) < 1 || countitem(523) < 50 || countitem(996) < 100 || countitem(994) < 100 || countitem(995) < 100 || countitem(997) < 100) goto NoItems;
+if(Zeny < 1000000) goto NoItems;
+delitem 916,100;
+delitem 914,100;
+delitem 2254,1;
+delitem 523,50;
+delitem 996,100;
+delitem 994,100;
+delitem 995,100;
+delitem 997,100;
+set Zeny, Zeny - 1000000;
+getitem 20006,1;
+mes "[^5533FFWings NPC^000000]";
+mes "Here you are. Take it.";
+mes " ";
+mes "Have a nice day.";
+close;
+
+pinkwing:
+mes "[^5533FFWings NPC^000000]";
+mes "The Pink Wings quest consists of the next items:";
+mes "1 Gods Angel Wing";
+mes "20 Scarlet Dyestuff";
+mes "30 White Dyestuff";
+mes "1 Elven Ears";
+mes "150 Feather";
+mes "10,000,000z";
+next;
+if(countitem(20006) < 1 || countitem(975) < 20 || countitem(982) < 30 || countitem(2286) < 1 || countitem(949) < 150) goto NoItems;
+if(Zeny < 10000000) goto NoItems;
+delitem 20006,1;
+delitem 975,20;
+delitem 982,30;
+delitem 2286,1;
+delitem 949,150;
+set Zeny, Zeny - 10000000;
+getitem 20803,1;
+mes "[^5533FFWings NPC^000000]";
+mes "Here you are. Take it.";
+mes " ";
+mes "Have a nice day.";
+close;
+
+demwig:
+mes "[^5533FFWings NPC^000000]";
+mes "The Demon Wings quest consists of the next items:";
+mes "200 Demon Horn";
+mes "10 Black Dyestuff";
+mes "20,000,000z";
+next;
+if(countitem(20516) < 200 || countitem(983) < 10) goto NoItems;
+if(Zeny < 20000000) goto NoItems;
+delitem 20516,200;
+delitem 983,10;
+set Zeny, Zeny - 20000000;
+getitem 20804,1;
+mes "[^5533FFWings NPC^000000]";
+mes "Here you are. Take it.";
+mes " ";
+mes "Have a nice day.";
+close;
+
+dvwings:
+mes "[^5533FFWings NPC^000000]";
+mes "The Devil Wing quest consists of the next items:";
+mes "1500 Little Evil Horn";
+mes "200 Little Evil Wing";
+mes "5 Evil Wing";
+mes "50 Black Dyestuff";
+mes "50 Cracked Diamonds";
+mes "1 Gods Angel Wing";
+mes "500,000,000z";
+next;
+if(countitem(1038) < 200 || countitem(1039) < 1500 || countitem(2255) < 5 || countitem(983) < 50 || countitem(733) < 50 || countitem(20006) < 1) goto NoItems;
+if(Zeny < 500000000) goto NoItems;
+delitem 1038,200;
+delitem 1039,1500;
+delitem 2255,5;
+delitem 983,50;
+delitem 733,50;
+delitem 20006,1;
+set Zeny, Zeny - 500000000;
+getitem 20805,1;
+mes "[^5533FFWings NPC^000000]";
+mes "Here you are. Take it.";
+mes " ";
+mes "Have a nice day.";
+close;
+
+
+fdwings:
+mes "[^5533FFWings NPC^000000]";
+mes "The Fire Dragon Wings quest consists of the next items:";
+mes "1 Dragon Wings";
+mes "50 Three-Headed Dragon's Head";
+mes "100 Fire Dragon Scale";
+mes "500,000,000z";
+next;
+if(countitem(20802) < 1 || countitem(7443) < 50 || countitem(7451) < 100) goto NoItems;
+if(Zeny < 500000000) goto NoItems;
+delitem 20802,1;
+delitem 7443,50;
+delitem 7451,100;
+set Zeny, Zeny - 500000000;
+getitem 20801,1;
+mes "[^5533FFWings NPC^000000]";
+mes "Here you are. Take it.";
+mes " ";
+mes "Have a nice day.";
+close;
+
+dragwings:
+mes "[^5533FFWings NPC^000000]";
+mes "The Dragon Wings quest consists of the next items:";
+mes "100 Fire Dragon Scale";
+mes "10 Three-Headed Dragon's Head";
+mes "50 Holy Water";
+mes "50 Dragon Horn";
+mes "1 Gods Angel Wing";
+mes "100 Dragon Skin";
+mes "100 Dragon Scale";
+mes "10,000,000z";
+next;
+if(countitem(7451) < 100 || countitem(7443) < 10 || countitem(523) < 50 || countitem(7265) < 50 || countitem(20006) < 1 || countitem(7123) < 100 || countitem(1036) < 100) goto NoItems;
+if(Zeny < 10000000) goto NoItems;
+delitem 7451,100;
+delitem 7443,10;
+delitem 523,50;
+delitem 7265,50;
+delitem 20006,1;
+delitem 7123,100;
+delitem 1036,100;
+set Zeny, Zeny - 10000000;
+getitem 20802,1;
+mes "[^5533FFWings NPC^000000]";
+mes "Here you are. Take it.";
+mes " ";
+mes "Have a nice day.";
+close;
+
+NoItems:
+mes "[^5533FFWings NPC^000000]";
+mes "Sorry you don't have all the items or zeny I need.";
+mes "Come back when you have them all.";
+close;
+
+ende:
+mes "[^5533FFWings NPC^000000]";
+mes "Have a nice day.";
+close;
+
+}

@@ -1,0 +1,61 @@
+//===== eAthena Script =======================================
+//= Stats Seller Script
+//= Created with Windows XP Editor
+//===== By: ==================================================
+//= Tome 
+//===== Current Version: =====================================
+//= 1.0
+//===== Description: =========================================
+//= You can buy Status Points with this NPC
+//============================================================
+prontera.gat,154,285,0	script	Stats Seller	110,{
+	set $stpkurs,10000;
+	mes "[Stats Seller]";
+	mes "Hello,";
+	mes "I can sell you some status points.";
+	mes "Statuspoint = "+ $stpkurs +" Zeny";
+	mes "You want to buy some?";
+	mes "Remember, you can't have more than 65535 Status Points!!!";
+	menu "Buy.",sbuy,"Cya later.",go_ende;
+
+// Buy
+sbuy:
+	next;
+	mes "[Stats Seller]";
+	mes "How many Status Points you wanna buy?";
+	input @sbuyst;
+	set @sbuyal,@sbuyst*$stpkurs;
+	if (Zeny < @sbuyal) goto nozeny;
+	if (@sbuyst > 32000) goto maxk;
+next;
+	mes "[Stats Seller]";
+	mes "Ok,";
+	mes "So... "+ @sbuyst +" Status Points is ...";
+	mes "Hm..."+ @sbuyal + " Zeny!";
+	mes "You want buy it?";
+	menu "Yes",lstep,"No",go_ende;
+
+lstep:
+next;
+	mes "[Stats Seller]";
+	mes "Here you are";
+	mes "Have a nice Day.";
+set StatusPoint,StatusPoint+@sbuyst;
+set Zeny,Zeny-@sbuyal;
+close;
+
+nozeny:
+next;
+	mes "[Stats Seller]";
+	mes "You don't have enough Zeny....";
+	close;
+
+
+go_ende:
+	next;
+	mes "[Stats Seller]";
+	mes "Ok.";
+	mes "Have a nice Day.";
+
+close;
+}

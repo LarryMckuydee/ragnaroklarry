@@ -1,0 +1,50 @@
+prontera,160,192,5	script	PVP Warper	730,{
+mes "[ ^0065DFPVP Warper^000000 ]";
+mes "Welcome To PVP Warper";
+mes "I Can Help You Warp To PVP Room";
+mes "This NPC Just For While PVP Room Only";
+next;
+mes "[ ^0065DFPVP Warper^000000 ]";
+mes "You Ready For Warper PVP Room?";
+switch(select("PvP Room 1:PvP Room 2:PvP Room 3:PvP Room 4:No")) {
+case 1:
+set zz_point,zz_point+1;
+set my_point,zz_point;
+announce ""+ strcharinfo(0) +" Has Entered The PVP Room.." + zz_point + " Times ",bc_all; //announce and end
+warp "pvp_y_8-2" ,0,0;
+close;
+end;
+case 2:
+set zz_point,zz_point+1;
+set my_point,zz_point;
+announce ""+ strcharinfo(0) +" Has Entered The PVP Room.." + zz_point + " Times ",bc_all; //announce and end
+warp "YOURPVPROOM 2" ,0,0;
+close;
+end;
+case 3:
+set zz_point,zz_point+1;
+set my_point,zz_point;
+announce ""+ strcharinfo(0) +" Has Entered The PVP Room.." + zz_point + " Times ",bc_all; //announce and end
+warp "YOURPVPROOM 3" ,0,0;
+close;
+end;
+case 4:
+set zz_point,zz_point+1;
+set my_point,zz_point;
+announce ""+ strcharinfo(0) +" Has Entered The PVP Room.." + zz_point + " Times ",bc_all; //announce and end
+warp "YOURPVPROOM 4" ,0,0;
+close;
+end;
+case 5:
+close;
+}
+
+OnInit:
+waitingroom "Pvp Room",0,0;
+end;
+}
+pvp_y_8-2	mapflag	nosave
+pvp_y_8-2	mapflag	nowarp
+pvp_y_8-2	mapflag	nowarpto
+pvp_y_8-2	mapflag	noteleport
+pvp_y_8-2	mapflag	noreturn

@@ -1,0 +1,13 @@
+xmas,170,118,5	duplicate(SocketEnchant)	SocketEnchater1#xmas	604
+xmas,168,116,3	duplicate(SocketEnchant2)	SocketEnchater2#xmas	605
+xmas,116,147,6	duplicate(ENCHAN_ARM)	ArmorEnchanter#xmas	608
+
+xmas,114,115,6	script	CibaiKia	617,{
+	callfunc "refinemain","CibaiKia",0;
+	end;
+}
+
+xmas,160,129,4	script	Repairman#xmas	86,{
+	callfunc "repairmain","Repairman";
+	end;
+}

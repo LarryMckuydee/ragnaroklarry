@@ -1,0 +1,68 @@
+guild_vs1-2,32,67,5	script	MVP Master#h1-1::MVP Master	766,{
+
+mes "[MVP Master]";
+mes "Select your MVP!";
+next;
+menu
+//-------------Menüpunkte-----------
+"Amon Ra", Amon,
+"Baphomet", Bapho,
+"Dark Lord",Dark,
+"Doppelgänger",DG,
+"Dracula",Drac,
+"Drake",Drake,
+"Eddga",Eddga,
+"Evil Snake Lored",ESL,
+"Golden Thief Bug",GTB,
+"Garm",Garm,
+"Incarnation Samurai",Samu,
+"Stormy Knight",SK,
+"Lord of Death",LoD,
+"Maya",Maya,
+"Mistress",Missy,
+"Moonlight Flower",Moony,
+"Orc Hero",Hero,
+"Orc Lord",Lord,
+"Osiris",Osiris,
+"Pharaoh",Phara,
+"Phreeoni", Phree,
+"Tao Gunka",Tao,
+"Turtle General",TG,
+"Quit",mvp_CANCEL;
+
+//--------------Gerufene Monster----------------------------------------
+
+Amon: monster "guild_vs1-2.gat",-1,-1,"Amon Ra" ,1511,1;close;
+Bapho: monster "guild_vs1-2.gat",-1,-1,"Baphomet" ,1039,1; close;
+Dark: monster "guild_vs1-2.gat",-1,-1,"Dark Lord" ,1272,1; close;
+DG: monster "guild_vs1-2.gat",-1,-1,"Doppelganger" ,1446,1;close;
+Drac: monster "guild_vs1-2.gat",-1,-1,"Dracula" ,1389,1;close;
+Drake: monster "guild_vs1-2.gat",-1,-1,"Drake" ,1112,1;close;
+Eddga: monster "guild_vs1-2.gat",-1,-1,"Eddga" ,1115,1;close;
+ESL: monster "guild_vs1-2.gat",-1,-1,"Evil Snake Lord" ,1418,1;close;
+GTB: monster "guild_vs1-2.gat",-1,-1,"Golden Thief Bug" ,1086,1;close;
+Garm: monster "guild_vs1-2.gat",-1,-1,"Garm" ,1252,1;close;
+Samu: monster "guild_vs1-2.gat",-1,-1,"Incantation Samurai" ,1492,1;close;
+SK: monster "pguild_vs1-2.gat",-1,-1,"Stormy Knight" ,1251,1;close;
+LoD: monster "guild_vs1-2.gat",-1,-1,"Lord of Death" ,1373,1;close;
+Maya: monster "guild_vs1-2.gat",-1,-1,"Maya" ,1147,1;close;
+Missy: monster "guild_vs1-2.gat",-1,-1,"Mistress" ,1059,1;close;
+Moony: monster "guild_vs1-2.gat",-1,-1,"Moonlight Flower" ,1150,1;close;
+Hero: monster "guild_vs1-2.gat",-1,-1,"Orc Hero" ,1087,1;close;
+Lord: monster "guild_vs1-2.gat",-1,-1,"Orc Lord" ,1190,1;close;
+Osiris: monster "guild_vs1-2.gat",-1,-1,"Osiris" ,1038,1;close;
+Phara: monster "guild_vs1-2.gat",-1,-1,"Pharaoh" ,1157,1;close;
+Phree: monster "guild_vs1-2.gat",-1,-1,"Phreeoni" ,1159,1;close;
+Tao: monster "guild_vs1-2.gat",-1,-1,"Tao Gunka" ,1583,1;close;
+TG: monster "guild_vs1-2.gat",-1,-1,"Turtle General" ,1312,1;close;
+
+mvp_CANCEL:
+mes "[MvP Master]";
+mes "Allright, as you wish...";
+close;
+
+}
+
+guild_vs1-2,32,67,5	duplicate(MVP Master)	MVP Master#h1-2	766 
+guild_vs1-2,68,31,5	duplicate(MVP Master)	MVP Master#h1-3	766
+guild_vs1-2,32,32,5	duplicate(MVP Master)	MVP Master#h1-4	766

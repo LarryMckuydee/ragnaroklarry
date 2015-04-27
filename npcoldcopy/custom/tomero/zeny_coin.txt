@@ -1,0 +1,121 @@
+//===== eAthena Script ===============
+//= Zeny Coins Script
+//= Created with Windows XP Editor
+//===== By: ========================
+//= Tome [www.tomero.de]
+//===== Current Version: ==============
+//= 1.0
+//===== Description: =================
+//= You can buy Zeny Coins with that NPC
+//=================================
+
+prontera.gat,161,165,0	script	Coiner	940,{
+
+
+set @npcname$,"[^996699Coiner^000000]";	//= NPC's Name
+
+	mes @npcname$;
+	mes "Hello,";
+	mes "I'm Cho, the Coin Dealer.";
+next;
+	mes @npcname$;
+	mes "I can trade your Zeny into Coins:";
+	mes "1 Bronze Coin = 10m Zeny";
+	mes "1 Silver Coin = 100m Zeny";
+	mes "1 Mithril Coin = 1b Zeny";
+next;
+	mes @npcname$;
+	mes "So wich Coins you want?";
+	menu "Broze Coins",bc,"Silver Coins",sc,"Mithril Coin",mc;
+
+bc:
+next;
+	mes @npcname$;
+	mes "How many Bronze Coins you want?";
+	input @quantity;
+if (@quantity == 0) goto zero;
+if (@quantity >= 101) goto high;
+set @lose,@quantity*10000000;
+set @coin,673;
+if (Zeny < @lose) goto nozeny;
+next;
+	mes @npcname$;
+	mes "So you want buy ^006633"+ @quantity +"^000000 Bronze Coins?";
+	mes "That cost ^FF6600"+ @lose +"^000000 Zeny.";
+next;
+	menu "But it.",buy,"Stop! That's too expensive.",iend;
+
+
+sc:
+next;
+	mes @npcname$;
+	mes "How many Silver Coins you want?";
+	input @quantity;
+if (@quantity == 0) goto zero;
+if (@quantity >= 11) goto high;
+set @lose,@quantity*100000000;
+set @coin,675;
+if (Zeny < @lose) goto nozeny;
+next;
+	mes @npcname$;
+	mes "So you want buy ^006633"+ @quantity +"^000000 Bronze Coins?";
+	mes "That cost ^FF6600"+ @lose +"^000000 Zeny.";
+next;
+	menu "But it.",buy,"Stop! That's too expensive.",iend;
+
+mc:
+next;
+	mes @npcname$;
+	mes "So you want buy a Mithril Coin?";
+set @quantity,1;
+set @lose,@quantity*1000000000;
+set @coin,674;
+if (Zeny < @lose) goto nozeny;
+next;
+	mes @npcname$;
+	mes "So you want buy ^006633"+ @quantity +"^000000 Bronze Coins?";
+	mes "That cost ^FF6600"+ @lose +"^000000 Zeny.";
+next;
+	menu "But it.",buy,"Stop! That's too expensive.",iend;
+
+buy:
+next;
+	mes @npcname$;
+	mes "Here are your Coins";
+set Zeny, Zeny - @lose;
+getitem @coin,@quantity;
+next;
+	mes @npcname$;
+	mes "Have a nice Day.";
+close;
+
+zero:
+next;
+	mes @npcname$;
+	mes "Uhm.....";
+	mes "Don't waste my time!";
+close;
+
+high:
+next;
+	mes @npcname$;
+	mes "Haha, you can't buy that many Coins!";
+	mes "";
+	mes "Bye.";
+close;
+
+nozeny:
+next;
+	mes @npcname$;
+	mes "You have no Zeny -.-";
+	mes "Bye!";
+close;
+
+iend:
+	mes @npcname$;
+	mes "Uhm.....";
+	mes "Don't waste my time!";
+close;
+
+
+}

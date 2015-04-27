@@ -1,0 +1,424 @@
+//===== Custom Headgears Script =======================================
+//= Custom Headgears and Donations
+//===== By ===================================================
+//= Toby
+//===== Version ==============================================
+//=1.0
+//============================================================
+
+
+yuno.gat,157,123,4	script	Super Quest Item	965,{
+
+mes "[^FF0066King Joe^000000]";
+mes "You look very strong!";
+mes " ";
+mes "I can make you every SQI Weapon you like.";
+next;
+mes "[^FF0066King Joe^000000]";
+mes "Choose your SQI Weapon Class.";
+next;
+menu "Knight",kn,"Crusader",crus,"Priest",pri,"Monk",monk,"Alchemist",alch,"Blacksmith",bs,"Assassin",assa,"Rogue",rog,"Hunter",hunt,"Bard/Dancer",bada,"Wizzard",wiz,"Sage",sag,"Nothing.",endi;
+
+kn:
+mes "[^FF0066King Joe^000000]";
+mes "You need the following itemes for that SQI:";
+mes "1 Tirfing";
+mes "1 Gungnir";
+mes "1 Longinus's Spear";
+mes "1 Lance";
+mes "9 Bathory Card";
+mes "2 Loki's Whispers";
+mes "1,000 Evil Horn";
+mes "240,000,000z";
+next;
+if(countitem(1139) < 1 || countitem(1418) < 1 || countitem(1469) < 1 || countitem(1410) < 1 || countitem(4119) < 9 || countitem(7019) < 2 || countitem(923) < 1000) goto NoItems;
+if(Zeny < 240000000) goto NoItems;
+delitem 1139,1;
+delitem 1418,1;
+delitem 1469,1;
+delitem 1410,1;
+delitem 4119,9;
+delitem 7019,2;
+delitem 923,1000;
+set Zeny, Zeny - 240000000;
+getitem 20508,1;
+mes "[^FF0066King Joe^000000]";
+mes "Here you are. Take it.";
+mes " ";
+mes "Have a nice day.";
+close;
+
+
+crus:
+mes "[^FF0066King Joe^000000]";
+mes "You need the following itemes for that SQI:";
+mes "1 Sacred Mission";
+mes "1 Mirror Shield";
+mes "1 Rosary";
+mes "1 Safety Ring";
+mes "5 Ambernite Card";
+mes "5 Medusa Card";
+mes "30 Orc Warrior Card";
+mes "1 Emperium Anvil";
+mes "12 Emperium";
+mes "200 Piece of Shield";
+mes "1,000 Destroyed Armor";
+mes "250,000,000z";
+next;
+if(countitem(2128) < 1 || countitem(2107) < 1 || countitem(2626) < 1 || countitem(2615) < 1 || countitem(4032) < 5 || countitem(4124) < 5 || countitem(4066) < 30 || countitem(989) < 1 || countitem(714) < 12 || countitem(7108) < 200 || countitem(7069) < 1000) goto NoItems;
+if(Zeny < 250000000) goto NoItems;
+delitem 2128,1;
+delitem 2107,1;
+delitem 2626,1;
+delitem 2615,1;
+delitem 4032,5;
+delitem 4124,5;
+delitem 4066,30;
+delitem 989,1;
+delitem 714,12;
+delitem 7108,200;
+delitem 7069,1000;
+set Zeny, Zeny - 250000000;
+getitem 20500,1;
+mes "[^FF0066King Joe^000000]";
+mes "Here you are. Take it.";
+mes " ";
+mes "Have a nice day.";
+close;
+
+
+pri:
+mes "[^FF0066King Joe^000000]";
+mes "You need the following itemes for that SQI:";
+mes "1 Coif";
+mes "1 Holy Robe";
+mes "15 Plankton Card";
+mes "100 Crystal Blue";
+mes "150 Fang of Hatii";
+mes "1,200 Ice Cubic";
+mes "250,000,000z";
+next;
+if(countitem(5092) < 1 || countitem(2327) < 1 || countitem(4024) < 15 || countitem(991) < 100 || countitem(7036) < 150 || countitem(7066) < 1200) goto NoItems;
+if(Zeny < 250000000) goto NoItems;
+delitem 5092,1;
+delitem 2327,1;
+delitem 4024,15;
+delitem 991,100;
+delitem 7036,150;
+delitem 7066,1200;
+set Zeny, Zeny - 250000000;
+getitem 20505,1;
+mes "[^FF0066King Joe^000000]";
+mes "Here you are. Take it.";
+mes " ";
+mes "Have a nice day.";
+close;
+
+
+monk:
+mes "[^FF0066King Joe^000000]";
+mes "You need the following itemes for that SQI:";
+mes "1 Berserk";
+mes "1 Waghnak";
+mes "15 Executioner's Mitten";
+mes "10 Marine Sphere Card";
+mes "3 Caramel Card";
+mes "20 Poison Bottle";
+mes "20 Broken Liquor Jar";
+mes "200 Bee Sting";
+mes "200 Giant Butterfly Wing";
+mes "200 Alcohol";
+mes "200 Mystic Frozen";
+mes "185,000,000z";
+next;
+if(countitem(1814) < 1 || countitem(1801) < 1 || countitem(7017) < 15 || countitem(4084) < 10 || countitem(4063) < 3 || countitem(678) < 20 || countitem(7158) < 20 || countitem(939) < 200 || countitem(7168) < 200 || countitem(970) < 200 || countitem(995) < 200) goto NoItems;
+if(Zeny < 185000000) goto NoItems;
+delitem 1814,1;
+delitem 1801,1;
+delitem 7017,15;
+delitem 4084,10;
+delitem 4063,3;
+delitem 678,20;
+delitem 7158,20;
+delitem 939,200;
+delitem 7168,200;
+delitem 970,200;
+delitem 995,200;
+set Zeny, Zeny - 185000000;
+getitem 20510,1;
+mes "[^FF0066King Joe^000000]";
+mes "Here you are. Take it.";
+mes " ";
+mes "Have a nice day.";
+close;
+
+
+alch:
+mes "[^FF0066King Joe^000000]";
+mes "You need the following itemes for that SQI:";
+mes "5 Orcish Axe";
+mes "5 War Axe";
+mes "300 Great Nature";
+mes "2,000 Old Pick";
+mes "80 Sandman Card";
+mes "10 Green Petite Egg";
+mes "280,000,000z";
+next;
+if(countitem(1304) < 5 || countitem(1306) < 5 || countitem(997) < 300 || countitem(7318) < 2000 || countitem(4101) < 80 || countitem(9022) < 10) goto NoItems;
+if(Zeny < 280000000) goto NoItems;
+delitem 1304,5;
+delitem 1306,5;
+delitem 997,300;
+delitem 7318,2000;
+delitem 4101,80;
+delitem 9022,10;
+set Zeny, Zeny - 280000000;
+getitem 20504,1;
+mes "[^FF0066King Joe^000000]";
+mes "Here you are. Take it.";
+mes " ";
+mes "Have a nice day.";
+close;
+
+
+bs:
+mes "[^FF0066King Joe^000000]";
+mes "You need the following itemes for that SQI:";
+mes "1 Iron Driver";
+mes "500 Rough Wind";
+mes "2000 Elder Pixie Mutsache";
+mes "100 Golem Card";
+mes "10 Gold Bullion";
+mes "350,000,000z";
+next;
+if(countitem(1529) < 1 || countitem(996) < 500 || countitem(1040) < 2000 || countitem(4072) < 100 || countitem(7228) < 10) goto NoItems;
+if(Zeny < 350000000) goto NoItems;
+delitem 1529,1;
+delitem 996,500;
+delitem 1040,2000;
+delitem 4072,100;
+delitem 7228,10;
+set Zeny, Zeny - 350000000;
+getitem 20507,1;
+mes "[^FF0066King Joe^000000]";
+mes "Here you are. Take it.";
+mes " ";
+mes "Have a nice day.";
+close;
+
+
+assa:
+mes "[^FF0066King Joe^000000]";
+mes "You need the following itemes for that SQI:";
+mes "1 Infiltrator";
+mes "1 Grimtooth";
+mes "1 Assassin Mask";
+mes "100 Hydra Card";
+mes "1,000 Broken Shuriken";
+mes "100 Elunium";
+mes "400 Blade of Darkness";
+mes "50 Oridecon";
+mes "300,000,000z";
+next;
+if(countitem(1261) < 1 || countitem(1237) < 1 || countitem(5054) < 1 || countitem(4035) < 100 || countitem(7156) < 1000 || countitem(985) < 100 || countitem(7023) < 400 || countitem(984) < 50) goto NoItems;
+if(Zeny < 300000000) goto NoItems;
+delitem 1261,1;
+delitem 1237,1;
+delitem 5054,1;
+delitem 4035,100;
+delitem 7156,1000;
+delitem 985,100;
+delitem 7023,400;
+delitem 984,50;
+set Zeny, Zeny - 300000000;
+getitem 20512,1;
+mes "[^FF0066King Joe^000000]";
+mes "Here you are. Take it.";
+mes " ";
+mes "Have a nice day.";
+close;
+
+
+rog:
+mes "[^FF0066King Joe^000000]";
+mes "You need the following itemes for that SQI:";
+mes "1 Rougemaster's Bow";
+mes "1 Arbalest";
+mes "40 Whisper Card";
+mes "20 Young Twig";
+mes "500 Barren Trunk";
+mes "500 Fine-grained Trunk";
+mes "500 Solid Trunk";
+mes "300 Thin Trunk";
+mes "100 Peridot";
+mes "300,000,000z";
+next;
+if(countitem(1719) < 1 || countitem(1713) < 1 || countitem(4102) < 4 || countitem(7018) < 20 || countitem(1068) < 500 || countitem(1066) < 500 || countitem(1067) < 500 || countitem(7186) < 300 || countitem(7289) < 100) goto NoItems;
+if(Zeny < 300000000) goto NoItems;
+delitem 1719,1;
+delitem 1713,1;
+delitem 4102,40;
+delitem 1068,500;
+delitem 1066,500;
+delitem 1067,500;
+delitem 7186,300;
+delitem 7289,100;
+set Zeny, Zeny - 300000000;
+getitem 20509,1;
+mes "[^FF0066King Joe^000000]";
+mes "Here you are. Take it.";
+mes " ";
+mes "Have a nice day.";
+close;
+
+
+hunt:
+mes "[^FF0066King Joe^000000]";
+mes "You need the following itemes for that SQI:";
+mes "5 Ballista";
+mes "5 Rudra Bow";
+mes "5 Bow Thimble";
+mes "5000 Arrow of Counter Evil";
+mes "2,000 False Angel Wing";
+mes "450,000,000z";
+next;
+if(countitem(1727) < 5 || countitem(1720) < 5 || countitem(2619) < 5 || countitem(1766) < 5000 || countitem(7104) < 2000) goto NoItems;
+if(Zeny < 450000000) goto NoItems;
+delitem 1727,5;
+delitem 1720,5;
+delitem 2619,5;
+delitem 1766,5000;
+delitem 7104,200;
+set Zeny, Zeny - 450000000;
+getitem 20501,1;
+mes "[^FF0066King Joe^000000]";
+mes "Here you are. Take it.";
+mes " ";
+mes "Have a nice day.";
+close;
+
+
+bada:
+mes "[^FF0066King Joe^000000]";
+mes "You need the following itemes for that SQI:";
+mes "1 Chemeti Whip";
+mes "1 Rope";
+mes "90 Pest Card";
+mes "50 Vadon Card";
+mes "5 Eye of Dullahan";
+mes "1500 Frozen Arrow";
+mes "1,000 Mute Arrow";
+mes "100 Flame Heart";
+mes "180,000,000z";
+next;
+if(countitem(1964) < 1 || countitem(1950) < 1 || countitem(4315) < 90 || countitem(4049) < 50 || countitem(2614) < 5 || countitem(1759) < 1500 || countitem(1769) < 1000 || countitem(994) < 100) goto NoItems;
+if(Zeny < 180000000) goto NoItems;
+delitem 1964,1;
+delitem 1950,1;
+delitem 4315,90;
+delitem 4049,50;
+delitem 2614,5;
+delitem 1759,1500;
+delitem 1769,1000;
+delitem 994,100;
+set Zeny, Zeny - 180000000;
+if (Sex == 0) goto dangy;
+getitem 20503,1;
+mes "[^FF0066King Joe^000000]";
+mes "Here you are. Take it.";
+mes " ";
+mes "Have a nice day.";
+close;
+
+dangy:
+getitem 20502,1;
+mes "[^FF0066King Joe^000000]";
+mes "Here you are. Take it.";
+mes " ";
+mes "Have a nice day.";
+close;
+
+wiz:
+mes "[^FF0066King Joe^000000]";
+mes "You need the following itemes for that SQI:";
+mes "1 Mighty Staff";
+mes "1 Soul Staff";
+mes "1 Wizardry Staff";
+mes "20 Necklace of Wisdom";
+mes "5 Morroc Solution";
+mes "5 Payon Solution";
+mes "200 Red Blood";
+mes "45 Jakk Card";
+mes "650 Cats Eye's";
+mes "300,000,000z";
+next;
+if(countitem(1613) < 1 || countitem(1472) < 1 || countitem(1473) < 1 || countitem(1007) < 20 || countitem(1088) < 5 || countitem(1089) < 5 || countitem(990) < 200 || countitem(4109) < 45 || countitem(7263) < 650) goto NoItems;
+if(Zeny < 300000000) goto NoItems;
+delitem 1613,1;
+delitem 1472,1;
+delitem 1473,1;
+delitem 1007,20;
+delitem 1088,5;
+delitem 1089,5;
+delitem 990,200;
+delitem 4109,45;
+delitem 7263,650;
+set Zeny, Zeny - 300000000;
+getitem 20506,1;
+mes "[^FF0066King Joe^000000]";
+mes "Here you are. Take it.";
+mes " ";
+mes "Have a nice day.";
+close;
+
+
+sag:
+mes "[^FF0066King Joe^000000]";
+mes "You need the following itemes for that SQI:";
+mes "1 Book of Billows";
+mes "1 Book of Gust of Wind";
+mes "1 Book of Mother Earth";
+mes "1 Book of Blazing Sun";
+mes "1 Book of the Apokalypse";
+mes "1 Tablet";
+mes "1 Memory Book";
+mes "20 Pencil Case";
+mes "5 Old Magicbook";
+mes "870 Oil Paper";
+mes "250 Slick Paper";
+mes "75 Worn-out Page";
+mes "300,000,000z";
+next;
+if(countitem(1553) < 1 || countitem(1556) < 1 || countitem(1554) < 1 || countitem(1555) < 1 || countitem(1557) < 1 || countitem(1552) < 1 || countitem(2121) < 1 || countitem(738) < 20 || countitem(1006) < 5 || countitem(7151) < 870 || countitem(7111) < 250 || countitem(1097) < 75) goto NoItems;
+if(Zeny < 300000000) goto NoItems;
+delitem 1553,1;
+delitem 1556,1;
+delitem 1554,1;
+delitem 1555,1;
+delitem 1557,1;
+delitem 1552,1;
+delitem 2121,1;
+delitem 738,20;
+delitem 1006,5;
+delitem 7151,870;
+delitem 7111,250;
+delitem 1097,75;
+set Zeny, Zeny - 300000000;
+getitem 20511,1;
+mes "[^FF0066King Joe^000000]";
+mes "Here you are. Take it.";
+mes " ";
+mes "Have a nice day.";
+close;
+
+
+NoItems:
+mes "[^FF0066King Joe^000000]";
+mes "I'm sorry, you don't have all Items!.";
+mes " ";
+mes "Have a nice day.";
+close;
+
+endi:
+close;
+}

@@ -1,0 +1,66 @@
+prontera,170,203,6	script	Larry#1	757,{ callfunc "questshop"; }
+
+-	script	TestScript	-1,{
+OnMenu:
+//set .@menu$, "Player Option 1:Player Option 2";
+
+//if (getgmlevel() >= 99) { set .@menu$, .@menu$ + ":GM Menu"; }
+set .@menu$,"Option1::GM";
+
+switch(select(.@menu$)) {
+  case 1:
+    mes "Player Option 1";
+    close;
+
+  case 2:
+    mes "Player Option 2";
+    close;
+  
+  case 3:
+    mes "GM Menu";
+    close;
+}
+}
+
+-	script	LarryQuest	-1,{
+OnInit:
+	
+setarray .Shop$[1],"Headgears","Weapons","Others";
+setarray .Text$[1],"0-9","A-E","F-J","K-O","P-T","U-Z";
+set .menu$,"";
+set .menu2$,"";
+freeloop(0);
+for(set .@i,1; .@i<=getarraysize(.Shop$); set .@i,.@i+1) {
+	set .menu$,.menu$+"\""+.Shop$[.@i]+"\","+.Shop$[.@i]+",";
+	set .menu2$,.menu2$+.Shop$[.@i]+":";
+	for(set .@j,1; .@j<=getarraysize(.Text$); set .@j,.@j+1){
+		set .menu2$,.menu2$+"\""+.Text$[.@j]+"\","+.Shop$[.@i]+.@j+",";
+	}
+}
+end;
+
+OnMenu:
+/*	
+	menu "Headgears",Option1,"Weapons",Option2,"Others",Option3,;
+	
+Option1:
+	menu "0-9",Option1,
+	"A-E",Option2,
+	"F-J",Option3;
+Option2:
+	menu "0-9",Option1,
+	"A-E",Option2,
+	"F-J",Option3;
+Option3:
+	close;
+*/
+	mes "Msg1:"+.menu$+"End";
+	mes "Msg2:"+.menu2$+"End";
+	end;
+}
+
+function	script	questshop	{
+	doevent "TestScript::OnMenu";
+	end;
+}
+

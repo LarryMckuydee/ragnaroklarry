@@ -1,0 +1,190 @@
+/*prontera,170,203,6	script	Larry#1	757,{ callfunc "questshop"; }
+
+-	script	TestScript	-1,{
+OnMenu:
+//set .@menu$, "Player Option 1:Player Option 2";
+
+//if (getgmlevel() >= 99) { set .@menu$, .@menu$ + ":GM Menu"; }
+set .@menu$,"Option1::GM";
+
+switch(select(.@menu$)) {
+  case 1:
+    mes "Player Option 1";
+    close;
+
+  case 2:
+    mes "Player Option 2";
+    close;
+  
+  case 3:
+    mes "GM Menu";
+    close;
+}
+}
+
+-	script	LarryQuest	-1,{
+OnInit:
+	
+setarray .Shop$[1],"Headgears","Weapons","Others";
+setarray .Text$[1],"0-9","A-E","F-J","K-O","P-T","U-Z";
+set .menu$,"";
+set .menu2$,"";
+freeloop(0);
+for(set .@i,1; .@i<=getarraysize(.Shop$); set .@i,.@i+1) {
+	set .menu$,.menu$+"\""+.Shop$[.@i]+"\","+.Shop$[.@i]+",";
+	set .menu2$,.menu2$+.Shop$[.@i]+":";
+	for(set .@j,1; .@j<=getarraysize(.Text$); set .@j,.@j+1){
+		set .menu2$,.menu2$+"\""+.Text$[.@j]+"\","+.Shop$[.@i]+.@j+",";
+	}
+}
+end;
+
+OnMenu:
+
+	menu "Headgears",Option1,"Weapons",Option2,"Others",Option3,;
+	
+Option1:
+	menu "0-9",Option1,
+	"A-E",Option2,
+	"F-J",Option3;
+Option2:
+	menu "0-9",Option1,
+	"A-E",Option2,
+	"F-J",Option3;
+Option3:
+	close;
+
+	mes "Msg1:"+.menu$+"End";
+	mes "Msg2:"+.menu2$+"End";
+	end;
+}
+
+function	script	questshop	{
+	doevent "TestScript::OnMenu";
+	end;
+}
+
+*/
+
+function	script	checknum	{
+	for(set .@i,1;.@i<getargcount();set .@i,.@i+1){
+		if(getarg(0)==getarg(.@i))
+			return 1;
+	}
+	return 0;
+}
+
+/*
+no double here!!!!!!!!!!!!!!!!!!!!!@@@@
+function	script	adjustdrop	{
+	if(getargcount()==1){
+	return getarg(0);
+	set @rate,0.5+getarg(0)*(getarg(1)/100);
+	if(getarg(0)>=90)
+	return getarg(0);
+	else{
+		if(@rate > 90)
+		return 90;
+		else{
+			return @rate;
+		}
+	}
+}*/
+
+
+-	script	CustomDrop	-1,{
+	function ddmonsterdrop; function Dropitem;
+	OnInit:
+		//setarray .monsterdrop,0;
+		set .ite,0;
+		ddmonsterdrop(1351,7619,1,5000,7620,1,5000,14232,1,5000,2357,1,1000,2115,1,1000,1228,1,100,1230,1,100);
+		end;
+	OnNPCKIllEvent:
+		//debugmes "killed "+killedrid+" at "+killedrid_x+" "+killedrid_y;
+		/*set @randnum,rand(100);
+		if( killedrid == 1351 ){
+			if(@randnum%2=0){
+				makeitem 7619,1,strcharinfo(3),killedrid_x,killedrid_y;
+				makeitem 7620,1,strcharinfo(3),killedrid_x,killedrid_y;
+				makeitem 14232,1,strcharinfo(3),killedrid_x,killedrid_y;
+			}
+			if(checknum(@randnum,1,4,5,6,10,30,40,50,20,80,)){
+				makeitem 2357,1,strcharinfo(3),killedrid_x,killedrid_y;
+				makeitem 2115,1,strcharinfo(3),killedrid_x,killedrid_y;
+			}
+			if(@randnum==8){
+				makeitem 1228,1,strcharinfo(3),killedrid_x,killedrid_y;
+				makeitem 1230,1,strcharinfo(3),killedrid_x,killedrid_y;
+			}
+		}*/
+		dropitem(killedrid,killedrid_x,killedrid_y);
+	//	if(getmapxy(@mapname$,@mapx,@mapy,1,"+killedrid+")!=(-1)){
+		//	dispbottom "monster "+killedrid+" is killed on "+@mapname$+" "+@mapx+" "+@mapy;
+		//}
+		end;
+	
+	//<mob_id>,<item1>,<item1quantity>,<item1droprate>,...
+function Dropitem {
+	
+		for(set .@i,0; .@i<.ite;set .@i,.@i+1){
+			copyarray .@tempdropcheck,getd(".monster"+.@i+"drop"),getarraysize(getd(".monster"+.@i+"drop"));
+			debugmes "masuk sudah at drop "+.ite;
+			debugmes "the killedrid is "+getarg(0)+" the id is "+.@tempdropcheck[0];
+			if(getarg(0)==.@tempdropcheck[0]){
+				debugmes "masuk sudah";
+				for(set .@j,1; .@j<getarraysize(.@tempdropcheck);set .@j,.@j+3){
+					set .@rand,rand(10000);
+					//if got ITEMBOOST run adjustdrop
+						//nth yet
+					//else no
+					if(.@rand%10000<.@tempdropcheck[.@j+2]){
+						switch(.@rand%9){
+							case 0:set .@randcellx,-1;
+								   break;
+							case 1:set .@randcelly,1;
+									break;
+							case 2:set .@randcelly,-1;
+									break;
+							case 3:set .@randcellx,1;
+									break;
+							case 4:set .@randcelly,1;
+									set .@randcellx,1;
+									break;
+							case 5:set .@randcelly,-1;
+									set .@randcellx,1;
+									break;
+							case 6:set .@randcelly,1;
+									set .@randcellx,-1;
+									break;
+							case 7:set .@randcelly,-1;
+									set .@randcellx,-1;
+									break;
+							case 8:set .@randcelly,0;
+									set .@randcellx,0;
+									break;
+						}
+						makeitem .@tempdropcheck[.@j],.@tempdropcheck[.@j+1],strcharinfo(3),getarg(1)+.@randcellx,getarg(2)+.@randcelly;
+						debugmes "drop item "+.@tempdropcheck[.@j];
+					}
+				}
+			}
+		}
+	
+	
+}
+
+function ddmonsterdrop {
+	if(getmonsterinfo(getarg(0),1)==-1){
+		debugmes "Error on monster drop, no such monster "+getarg(0)+" found";
+		return;
+	}else{
+		for(set .@i,0;.@i<getargcount();set .@i,.@i+1){
+			setarray .@tempmonsterdrop[.@i],getarg(.@i);
+		}
+		
+		copyarray getd(".monster"+.ite+"drop"),.@tempmonsterdrop[0],getarraysize(.@tempmonsterdrop);
+		set .ite,.ite+1;
+		return;
+	}
+}
+}
