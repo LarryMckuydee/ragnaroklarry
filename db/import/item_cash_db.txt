@@ -16,3 +16,121 @@
 //
 // Price:
 //    Item cost, in cash points (#CASHPOINTS).
+
+
+0,32711,200
+4,32711,200
+
+4,5171,10 //Valkyrie Helm[1] 10
+4,5826,20 //Valkyrie Helmet 20
+4,5312,5 //Ayothaya King's Hat [1] 5 
+4,5137,15 //_2290,1 Alice Doll[1] 15
+4,5857,15 //Cool FB Hat 15
+4,5308,15 //_2290,1 Brazil National Flag Hat[1] 15
+4,5277,15 //Yellow Bandana 15
+4,5278,15 //Yellow Ribbon 15
+4,5393,10 //Love Valentine's Hat 10
+4,5805,25 //Victorious Coronet 25
+4,5396,15 //Jasper Crest[1] 15
+4,5423,20 //I Love China 20
+4,5293,15 //Ramen Hat 15
+4,5376,25 //Flying Evil Wing[1] 25
+4,5374,30 //Gigantic Majestic Goat 30
+4,5518,30 //Gigantic Majestic Goat 30
+4,5353,35 //Hat of the SUn God[1] 35
+
+4,5314,10 //Hockey Mask 10
+4,5565,25 //Dragon Arhat Mask 25
+4,5135,5 //_5006,1 Cyclop's Eye 5 
+4,5800,10 //Blush of Gloom 10
+4,5610,10 //Ice Wing Ear 10
+4,5421,10 //Ears of Ifrit 10
+4,5325,10 //Robo Eye 10
+4,5470,10 //Eye of Darkness 10
+4,18507,20 //Elven Ears[1] 20
+4,2204,20 //_2260,1 Glasses[1] 20
+4,2202,20 //_2201,1| Sunglasses[1] 20
+
+4,5305,5 //Pirate Dagger 5
+4,5361,5 //Gangster Scarf 5
+4,5597,5 //Bubble Gum 5
+4,5775,10 //Choco Donut in Mouth 10
+4,5419,10 //Leaves of Grass 10
+4,5594,10 //Donut In Mouth 10
+4,5156,10 //Father's Mask 10
+4,5362,10 //Ninja Scroll 10
+4,5767,10 //Samurai Mask 10
+4,5377,15 //Gentleman's Pipe 15
+4,5463,15 //Rainbow Scarf 15
+4,5462,15 //Spiked Scarf 15
+4,5155,10 //Father's White Moustache 15
+
+
+4,5506,12 //Blue Night Cap 12
+4,5507,12 //Pink Night Cap 12
+4,5235,10 //Brown Beanie 10
+4,5236,10 //Blue Beanie 10
+4,5237,10 //Pink Beanie 10
+4,5232,10 //Pink Drooping Cat 10
+4,5528,10 //Frog King Hat 10
+4,5500,10 //Icecream Hat 10
+4,5497,10 //King Tiger Doll Hat[1] 10
+4,5537,10 //Kwati Hat[1] 10
+4,5555,10 //Leaf Cat Hat 10
+4,5253,10 //Lif Doll Hat 10
+4,5527,10 //Lunatic Hat 10
+4,5365,10 //Magnolia Hat[1] 10
+4,5457,10 //Moon Rabbit Hat[1] 10
+4,5214,10 //Moonlight Flower Hat 10
+4,5099,10 //Neko Mimi 10
+4,5554,10// Octopus Hat 10
+4,5520,10// Rabbit Earplugs[1] 15
+4,5572,10// Savage Babe Hat[1] 10
+4,5692,10// Sea Cat Hat[1] 10
+4,5556,10// Seal Hat 10
+4,5289,10// Vanilmirth Hat 10
+4,5464,10// Zaha Doll Hat 10
+
+4,5420,15//Mask of Ifrit 10
+4,5658,15// Imp Hat 10
+4,5660,15//Gryphon Hat 10
+4,5324,15//Little Angel Doll 10
+4,5335,15//Jumping Poring 15
+4,5381,15//Santa Poring Hat[1] 10
+4,5372,15//Koneko Hat 15
+4,5210,15//_2215,1|2210,1 Flapping Angel Wing 15
+4,5334,15//_2215,1|2210,1 Flapping Angeling 15
+
+4,5264,10//_2290,1 Australian Flag Hat 
+
+// Usable
+7,13610,10//enriched elu 5 box
+7,13611,10//enriched ori 5 box
+7,12916,2 //Assumptio 10 Scroll Box
+7,13589,9 //Assumptio 50 Scroll Box
+7,13584,2 //Blessing 30 Scroll Box
+7,13576,2 //Agi 30 Scroll Box
+7,12915,1 //Aspersio 10 scroll box
+7,13591,4 //Aspersio 50 Scroll Box
+7,12917,1 //Wind Walk 10 Scroll Box
+7,13595,1 //Wind Walk 50 Scroll Box
+7,13700,1 //Adrenaline Rush Scroll 10 Box
+7,14196,4 //Adrenaline Rush Scroll 50 Box
+7,13995,1 //Speed potion 10 Box
+//7,12202(10),1 //str 10 dish
+//7,12203(10),1 //agi 10 dish
+//7,12204(10),1 //int 10 dish
+//7,12205(10),1 //dex 10 dish
+//7,12206(10),1 //luk 10 dish
+//7,12207(10),1 //vit 10 dish
+//7,14536(20),1 //Abrasive
+7,12103,1 //Bloody Branch
+7,13607,3 //Bubble Gum 5 Box
+7,12412,1 //HE Bubble Gum
+//7,7135(100),1 //Bottle Grenade
+//7,7136(100),1 //Acid Bottle
+7,13973,1 //Poison Bottle 30 Box
+7,13761,2 //Empty Bottle Box 500
+7,7776,2 //Gym pass
+7,13710,18 //Gym pass box
+7,13758,1 //Field Manual 300% Box 20

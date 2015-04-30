@@ -15,6 +15,7 @@
 //===== Description: =========================================
 //	PvP Statistician
 //============================================================
+
 xmas,163,124,3	script	PvP Statistician	650,{
 	mes "[PvP Statistician]";
 	mes "I keep records of all PvP Data";
@@ -310,16 +311,20 @@ if(getgroupid()<111){
 
 
 //==== On PvP Player Kill End ================================
--	script	pvppctonkill	-1,{
+-	script	woepvpstatisc	-1,{
+function fmapchecking;
 OnInit:
 	set .MaxPlayers,25;
 	set .Options,4;
 	setarray .@maps$[0],"aldeg_cas01","aldeg_cas02","aldeg_cas03","aldeg_cas04","aldeg_cas05","gefg_cas01","gefg_cas02","gefg_cas03","gefg_cas04","gefg_cas05","payg_cas01","payg_cas02","payg_cas03","payg_cas04","payg_cas05","prtg_cas01","prtg_cas02","prtg_cas03","prtg_cas04","prtg_cas05";
+	copyarray getd(".guildmap$"),.@maps$[0],getarraysize(.@maps$);
 	end;
 
 OnPCKillEvent:
- if(.@maps$[0] == strcharinfo(3) || .@maps$[1] == strcharinfo(3) || .@maps$[2] == strcharinfo(3) || .@maps$[3] == strcharinfo(3) || .@maps$[4] == strcharinfo(3) || .@maps$[5] == strcharinfo(3) || .@maps$[6] == strcharinfo(3) || .@maps$[7] == strcharinfo(3) || .@maps$[8] == strcharinfo(3) || .@maps$[9] == strcharinfo(3) || .@maps$[10] == strcharinfo(3) || .@maps$[11] == strcharinfo(3) || .@maps$[12] == strcharinfo(3) || .@maps$[13] == strcharinfo(3) || .@maps$[14] == strcharinfo(3) || .@maps$[15] == strcharinfo(3) || .@maps$[16] == strcharinfo(3) || .@maps$[17] == strcharinfo(3) || .@maps$[18] == strcharinfo(3) || .@maps$[19] == strcharinfo(3)){ end; }
-	else { //if(getgroupid()<111) && (!agitcheck() || !agitcheck2()) {
+ //if(.@maps$[0] == strcharinfo(3) || .@maps$[1] == strcharinfo(3) || .@maps$[2] == strcharinfo(3) || .@maps$[3] == strcharinfo(3) || .@maps$[4] == strcharinfo(3) || .@maps$[5] == strcharinfo(3) || .@maps$[6] == strcharinfo(3) || .@maps$[7] == strcharinfo(3) || .@maps$[8] == strcharinfo(3) || .@maps$[9] == strcharinfo(3) || .@maps$[10] == strcharinfo(3) || .@maps$[11] == strcharinfo(3) || .@maps$[12] == strcharinfo(3) || .@maps$[13] == strcharinfo(3) || .@maps$[14] == strcharinfo(3) || .@maps$[15] == strcharinfo(3) || .@maps$[16] == strcharinfo(3) || .@maps$[17] == strcharinfo(3) || .@maps$[18] == strcharinfo(3) || .@maps$[19] == strcharinfo(3)){ end; }
+	//else { //if(getgroupid()<111) && (!agitcheck() || !agitcheck2()) 
+	if(fmapchecking(strcharinfo(3))==0){
+	debugmes "this is so wrong when come to here";
 	set pvpkillcount, pvpkillcount+1;
 	/*set @tempkillcount,@tempkillcount +1;
 	set @consecutivekill,@consecutivekill+1;
@@ -386,23 +391,35 @@ OnPCKillEvent:
 	else if(pvpkillcount>0) && (pvpdeathcount==0) { dispbottom "PvP Kill Count: "+pvpkillcount+", PvP Death Count: "+pvpdeathcount+", PvP KDR: "+pvpkillcount+":1"; }
 	else if(pvpkillcount==0) && (pvpdeathcount>0) { dispbottom "PvP Kill Count: "+pvpkillcount+", PvP Death Count: "+pvpdeathcount+", PvP KDR: 0:"+pvpdeathcount+""; }
 	else { dispbottom "PvP Kill Count: "+pvpkillcount+", PvP Death Count: "+pvpdeathcount+", PvP KDR: 0:0"; }
+		
+		
+		//=== On PvP Player Kill End ===============================
+		
+		
+	}else if ((fmapchecking(strcharinfo(3))==1)&& (agitcheck() || agitcheck2())){
+ //=== On WoE Player Kill End ===============================
+		
+	set woekillcount, woekillcount+1;
+	set woekillspree, woekillspree+1;
+	if(woekillcount>0) && (woedeathcount>0) { dispbottom "WoE Kill Count: "+woekillcount+", WoE Death Count: "+woedeathcount+", WoE KDR: "+callfunc("KDR_Calcton", woekillcount, woedeathcount)+":1, Emperium Breaks: "+ebreaker+""; }
+	else if(woekillcount>0) && (woedeathcount==0) { dispbottom "WoE Kill Count: "+woekillcount+", WoE Death Count: "+woedeathcount+", WoE KDR: "+woekillcount+":0, Emperium Breaks: "+ebreaker+""; }
+	else if(woekillcount==0) && (woedeathcount>0) { dispbottom "WoE Kill Count: "+woekillcount+", WoE Death Count: "+woedeathcount+", WoE KDR: 0:"+woedeathcount+", Emperium Breaks: "+ebreaker+""; }
+	else { dispbottom "WoE Kill Count: "+woekillcount+", WoE Death Count: "+woedeathcount+", WoE KDR: 0:0, Emperium Breaks: "+ebreaker+""; }
 	
-	//}
 	}
-} //=== On PvP Player Kill End ===============================
+	
+	//==== On WoE Player Kill End ================================
+
+	
+ 
 
 
 
 //==== On PvP Player Death ===================================
--	script	pvppctondie	-1,{
-OnInit:
-	setarray .@maps$[0],"aldeg_cas01","aldeg_cas02","aldeg_cas03","aldeg_cas04","aldeg_cas05","gefg_cas01","gefg_cas02","gefg_cas03","gefg_cas04","gefg_cas05","payg_cas01","payg_cas02","payg_cas03","payg_cas04","payg_cas05","prtg_cas01","prtg_cas02","prtg_cas03","prtg_cas04","prtg_cas05";
-	end;
 	
 OnPCDieEvent:
 	if(getgroupid()<111){
-		if(.@maps$[0] == strcharinfo(3) || .@maps$[1] == strcharinfo(3) || .@maps$[2] == strcharinfo(3) || .@maps$[3] == strcharinfo(3) || .@maps$[4] == strcharinfo(3) || .@maps$[5] == strcharinfo(3) || .@maps$[6] == strcharinfo(3) || .@maps$[7] == strcharinfo(3) || .@maps$[8] == strcharinfo(3) || .@maps$[9] == strcharinfo(3) || .@maps$[10] == strcharinfo(3) || .@maps$[11] == strcharinfo(3) || .@maps$[12] == strcharinfo(3) || .@maps$[13] == strcharinfo(3) || .@maps$[14] == strcharinfo(3) || .@maps$[15] == strcharinfo(3) || .@maps$[16] == strcharinfo(3) || .@maps$[17] == strcharinfo(3) || .@maps$[18] == strcharinfo(3) || .@maps$[19] == strcharinfo(3)){ end; } 
-		else if ( killerrid < 100000000 ){
+		if ( killerrid < 100000000 && fmapchecking(strcharinfo(3))==0){
 				if(rid2name(killerrid)== strcharinfo(0)) { debugmes "Die HERE killer "+rid2name(killerrid)+" and die "+strcharinfo(0);end; }
 				//announce rid2name(killerrid) + " just killed " + strcharinfo(0) + "!",bc_all;
 				//message rid2name(killerrid),"You just killed " + strcharinfo(0) +"!";
@@ -414,54 +431,45 @@ OnPCDieEvent:
 				dispbottom "PvP Death Count is now "+pvpdeathcount+", and PvP Killing Spree Reset.";
 				end;
 			
+		}else if((killerrid < 100000000)&&(fmapchecking(strcharinfo(3))==1)&&(agitcheck() || agitcheck2())){
+			
+				if(fmapchecking(strcharinfo(3))==1){
+				if(rid2name(killerrid)== strcharinfo(0)) { end; }
+				announce rid2name(killerrid) + " just killed " + strcharinfo(0) + "!",bc_all;
+				set woedeathcount, woedeathcount+1;
+				if(woekillspree>xwoespree) set xwoespree, xwoespree = woekillspree;
+				woekillspree = 0;
+				dispbottom "WoE Death Count is now "+woedeathcount+", and WoE Killing Spree Reset.";
+				end;
+				}
 		}
 	}
-} //=== On PvP Player Death End ==============================
+ //=== On PvP Player Death End ==============================
 
 
 
-//==== On WoE Player Kill End ================================
--	script	woepctonkill	-1,{
-OnInit:
-	set .MaxPlayers,25;
-	set .Options,4;
-	setarray .@maps$[0],"aldeg_cas01","aldeg_cas02","aldeg_cas03","aldeg_cas04","aldeg_cas05","gefg_cas01","gefg_cas02","gefg_cas03","gefg_cas04","gefg_cas05","payg_cas01","payg_cas02","payg_cas03","payg_cas04","payg_cas05","prtg_cas01","prtg_cas02","prtg_cas03","prtg_cas04","prtg_cas05";
-	end;
 
-OnPCKillEvent:
-if(getgroupid()<111) && (agitcheck() || agitcheck2()) {
-if(.@maps$[0] == strcharinfo(3) || .@maps$[1] == strcharinfo(3) || .@maps$[2] == strcharinfo(3) || .@maps$[3] == strcharinfo(3) || .@maps$[4] == strcharinfo(3) || .@maps$[5] == strcharinfo(3) || .@maps$[6] == strcharinfo(3) || .@maps$[7] == strcharinfo(3) || .@maps$[8] == strcharinfo(3) || .@maps$[9] == strcharinfo(3) || .@maps$[10] == strcharinfo(3) || .@maps$[11] == strcharinfo(3) || .@maps$[12] == strcharinfo(3) || .@maps$[13] == strcharinfo(3) || .@maps$[14] == strcharinfo(3) || .@maps$[15] == strcharinfo(3) || .@maps$[16] == strcharinfo(3) || .@maps$[17] == strcharinfo(3) || .@maps$[18] == strcharinfo(3) || .@maps$[19] == strcharinfo(3)){
-	set woekillcount, woekillcount+1;
-	set woekillspree, woekillspree+1;
-	if(woekillcount>0) && (woedeathcount>0) { dispbottom "WoE Kill Count: "+woekillcount+", WoE Death Count: "+woedeathcount+", WoE KDR: "+callfunc("KDR_Calcton", woekillcount, woedeathcount)+":1, Emperium Breaks: "+ebreaker+""; }
-	else if(woekillcount>0) && (woedeathcount==0) { dispbottom "WoE Kill Count: "+woekillcount+", WoE Death Count: "+woedeathcount+", WoE KDR: "+woekillcount+":0, Emperium Breaks: "+ebreaker+""; }
-	else if(woekillcount==0) && (woedeathcount>0) { dispbottom "WoE Kill Count: "+woekillcount+", WoE Death Count: "+woedeathcount+", WoE KDR: 0:"+woedeathcount+", Emperium Breaks: "+ebreaker+""; }
-	else { dispbottom "WoE Kill Count: "+woekillcount+", WoE Death Count: "+woedeathcount+", WoE KDR: 0:0, Emperium Breaks: "+ebreaker+""; }
-	
-	}}
-	end;
 
-} //=== On WoE Player Kill End ===============================
+
+
 
 
 
 //==== On WoE Player Death ===================================
--	script	woepctondie	-1,{
-OnInit:
-	setarray .@maps$[0],"aldeg_cas01","aldeg_cas02","aldeg_cas03","aldeg_cas04","aldeg_cas05","gefg_cas01","gefg_cas02","gefg_cas03","gefg_cas04","gefg_cas05","payg_cas01","payg_cas02","payg_cas03","payg_cas04","payg_cas05","prtg_cas01","prtg_cas02","prtg_cas03","prtg_cas04","prtg_cas05";
-	end;
 	
-OnPCDieEvent:
-if ( killerrid < 100000000 ) && (getgroupid()<111) && (agitcheck() || agitcheck2()) {
-	if(.@maps$[0] == strcharinfo(3) || .@maps$[1] == strcharinfo(3) || .@maps$[2] == strcharinfo(3) || .@maps$[3] == strcharinfo(3) || .@maps$[4] == strcharinfo(3) || .@maps$[5] == strcharinfo(3) || .@maps$[6] == strcharinfo(3) || .@maps$[7] == strcharinfo(3) || .@maps$[8] == strcharinfo(3) || .@maps$[9] == strcharinfo(3) || .@maps$[10] == strcharinfo(3) || .@maps$[11] == strcharinfo(3) || .@maps$[12] == strcharinfo(3) || .@maps$[13] == strcharinfo(3) || .@maps$[14] == strcharinfo(3) || .@maps$[15] == strcharinfo(3) || .@maps$[16] == strcharinfo(3) || .@maps$[17] == strcharinfo(3) || .@maps$[18] == strcharinfo(3) || .@maps$[19] == strcharinfo(3)){
-	if(rid2name(killerrid)== strcharinfo(0)) { end; }
-	announce rid2name(killerrid) + " just killed " + strcharinfo(0) + "!",bc_all;
-	set woedeathcount, woedeathcount+1;
-	if(woekillspree>xwoespree) set xwoespree, xwoespree = woekillspree;
-	woekillspree = 0;
-	dispbottom "WoE Death Count is now "+woedeathcount+", and WoE Killing Spree Reset.";
-	end;
-	}}
+	
+	function fmapchecking {
+	copyarray .@mp$[0],getd(".guildmap$"),getarraysize(getd(".guildmap$"));
+	debugmes "size "+getarraysize(getd(".@guildmap$"));
+	for(set .@i,0;.@i<getarraysize(.@mp$);set .@i,.@i+1){
+		debugmes "Im in "+getarg(0)+" -> "+.@mp$[.@i];
+		if(getarg(0)==.@mp$[.@i]){
+			debugmes "here already return 1";
+			return 1;
+		}
+	}
+	return 0;
+	}
 } //=== On WoE Player Death End ==============================
 
 
@@ -635,3 +643,4 @@ if(getgroupid()<111){
 	end;
 
 } //=== On WoE Emperium Break End ============================
+

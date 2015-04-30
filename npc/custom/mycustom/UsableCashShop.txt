@@ -1,0 +1,25 @@
+xmas,153,115,4	script	UsableCashshop#xmas	664,{
+	OnInit:
+		callshop "ucashshop",1;
+		npcshopattach "ucashshop";
+		end;
+	OnBuyItem:
+		
+		end;
+}
+
+-	script	usacashshop	-1,{
+	OnInit:
+		npcshopdelitem "ucashshop",909;
+		npcshopadditem "ucashshop",12202,1;
+		end;
+	function Add{
+		if (getitemname(getarg(0)) == "null") {
+			debugmes "Cash reward #"+getarg(0)+" invalid (skipped).";
+			return;
+		}
+		for(
+	}
+}
+
+-	shop	ucashshop	-1,909:-1
