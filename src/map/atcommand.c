@@ -1204,6 +1204,7 @@ ACMD_FUNC(item)
 	struct item_data *item_data[10];
 	int get_count, i, j=0;
 	char *itemlist;
+	int costume = 0;
 
 	nullpo_retr(-1, sd);
 	memset(item_name, '\0', sizeof(item_name));
@@ -1237,6 +1238,28 @@ ACMD_FUNC(item)
 			clif_displaymessage(fd, msg_txt(sd,19)); // Invalid item ID or name.
 			return -1;
 		}
+/***********************************************************costume *************************************/
+	if( !strcmpi(command+1,"costumeitem") )
+ 	{
+ 		if( !battle_config.reserved_costume_id )
+ 		{
+ 			clif_displaymessage(fd, "Costume convertion is disable. Set a value for reserved_cosutme_id on your battle.conf file.");
+ 			return -1;
+ 		}
+ 		if( !(item_data[j]->equip&EQP_HEAD_LOW) &&
+ 			!(item_data[j]->equip&EQP_HEAD_MID) &&
+ 			!(item_data[j]->equip&EQP_HEAD_TOP) &&
+ 			!(item_data[j]->equip&EQP_COSTUME_HEAD_LOW) &&
+ 			!(item_data[j]->equip&EQP_COSTUME_HEAD_MID) &&
+ 			!(item_data[j]->equip&EQP_COSTUME_HEAD_TOP) )
+ 		{
+ 			clif_displaymessage(fd, "You cannot costume this item. Costume only work for headgears.");
+			return -1;
+		}
+		costume = 1;
+	}
+
+/***********************************************************costume *************************************/
 		itemlist = strtok(NULL, ":"); //next itemline
 		j++;
 	}
@@ -1258,6 +1281,14 @@ ACMD_FUNC(item)
 				item_tmp.nameid = item_id;
 				item_tmp.identify = 1;
 				item_tmp.bound = bound;
+				
+ 			if( costume == 1 )
+ 			{ // Costume Item
+ 				item_tmp.card[0] = CARD0_CREATE;
+ 				item_tmp.card[2] = GetWord(battle_config.reserved_costume_id, 0);
+ 				item_tmp.card[3] = GetWord(battle_config.reserved_costume_id, 1);
+ 			}
+
 				if ((flag = pc_additem(sd, &item_tmp, get_count, LOG_TYPE_COMMAND)))
 					clif_additem(sd, 0, 0, flag);
 			}
@@ -9828,6 +9859,7 @@ void atcommand_basecommands(void) {
 		ACMD_DEF2("reloadmotd", reload),
 		ACMD_DEF2("reloadquestdb", reload),
 		ACMD_DEF2("reloadmsgconf", reload),
+		ACMD_DEF2("costumeitem", item),
 		ACMD_DEF2("reloadpacketdb", reload),
 		ACMD_DEF2("reloadinstancedb", reload),
 		ACMD_DEF(partysharelvl),

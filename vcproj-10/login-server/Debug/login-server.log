@@ -1,5 +1,5 @@
-﻿Build started 4/26/2015 5:02:21 PM.
-     1>Project "D:\Ragnarok\rathena rev 17719\vcproj-10\login-server.vcxproj" on node 3 (rebuild target(s)).
+﻿Build started 5/11/2015 6:58:24 PM.
+     1>Project "C:\Users\User\Documents\GitHub\ragnaroklarry\vcproj-10\login-server.vcxproj" on node 3 (rebuild target(s)).
      1>_PrepareForClean:
          Deleting file "login-server\Debug\login-server.lastbuildstate".
        InitializeBuildStatus:
@@ -115,12 +115,12 @@
          "login-server\Debug\msg_conf.obj"
          "login-server\Debug\cli.obj"
          "login-server\Debug\mt19937ar.obj"
-         login-server.vcxproj -> D:\Ragnarok\rathena rev 17719\vcproj-10\..\login-server.exe
+         login-server.vcxproj -> C:\Users\User\Documents\GitHub\ragnaroklarry\vcproj-10\..\login-server.exe
        FinalizeBuildStatus:
          Deleting file "login-server\Debug\login-server.unsuccessfulbuild".
          Touching "login-server\Debug\login-server.lastbuildstate".
-     1>Done Building Project "D:\Ragnarok\rathena rev 17719\vcproj-10\login-server.vcxproj" (rebuild target(s)).
+     1>Done Building Project "C:\Users\User\Documents\GitHub\ragnaroklarry\vcproj-10\login-server.vcxproj" (rebuild target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:07.21
+Time Elapsed 00:00:04.71

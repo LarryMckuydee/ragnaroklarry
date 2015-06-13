@@ -1,5 +1,5 @@
-﻿Build started 4/26/2015 5:02:21 PM.
-     1>Project "D:\Ragnarok\rathena rev 17719\vcproj-10\mapcache.vcxproj" on node 5 (rebuild target(s)).
+﻿Build started 5/11/2015 6:58:24 PM.
+     1>Project "C:\Users\User\Documents\GitHub\ragnaroklarry\vcproj-10\mapcache.vcxproj" on node 5 (rebuild target(s)).
      1>_PrepareForClean:
          Deleting file "mapcache\Debug\mapcache.lastbuildstate".
        InitializeBuildStatus:
@@ -40,12 +40,12 @@
          mapcache\Debug\strlib.obj
          mapcache\Debug\utils.obj
          mapcache\Debug\mapcache.obj /FIXED:NO 
-         mapcache.vcxproj -> D:\Ragnarok\rathena rev 17719\vcproj-10\..\mapcache.exe
+         mapcache.vcxproj -> C:\Users\User\Documents\GitHub\ragnaroklarry\vcproj-10\..\mapcache.exe
        FinalizeBuildStatus:
          Deleting file "mapcache\Debug\mapcache.unsuccessfulbuild".
          Touching "mapcache\Debug\mapcache.lastbuildstate".
-     1>Done Building Project "D:\Ragnarok\rathena rev 17719\vcproj-10\mapcache.vcxproj" (rebuild target(s)).
+     1>Done Building Project "C:\Users\User\Documents\GitHub\ragnaroklarry\vcproj-10\mapcache.vcxproj" (rebuild target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:06.00
+Time Elapsed 00:00:03.95

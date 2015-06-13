@@ -36,7 +36,9 @@ OnAgitStart:
 function Disp_Owner; function Add_Zero;
 
 OnInit:
-
+debugmes "This is time tick 0 -> "+gettimetick(0);
+debugmes "This is time tick 1 -> "+gettimetick(1);
+debugmes "This is time tick 2 -> "+gettimetick(2);
 // -----------------------------------------------------------
 //  Configuration settings.
 // -----------------------------------------------------------
@@ -121,7 +123,8 @@ OnMinute00:
 	}
 	if ((!agitcheck() && !agitcheck2()) || .Init) {
 		if (!agitcheck() && !agitcheck2()) set .Init,0;
-		for(set .@i,0; .@i<.Size; set .@i,.@i+4)
+		for(set .@i,0; .@i<.Size; set .@i,.@i+4){
+		debugmes "Day "+$WOE_CONTROL[.@i]+" StartTime "+$WOE_CONTROL[.@i+1]+" Endtime "+$WOE_CONTROL[.@i+2];
 			if (gettime(4) == $WOE_CONTROL[.@i] && gettime(3) >= $WOE_CONTROL[.@i+1] && gettime(3) < $WOE_CONTROL[.@i+2]) {
 				deletearray .Active[0],2;
 				set .Active[0], $WOE_CONTROL[.@i+3];
@@ -145,6 +148,7 @@ OnMinute00:
 				}
 				break;
 			}
+		}
 	}
 	set .Init,0;
 	end;

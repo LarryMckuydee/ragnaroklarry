@@ -101,14 +101,14 @@ function	script	adjustdrop	{
 		end;
 	OnNPCKIllEvent:
 		//debugmes "killed "+killedrid+" at "+killedrid_x+" "+killedrid_y;
-		/*set @randnum,rand(100);
+		set @randnum,rand(100);
 		if( killedrid == 1351 ){
-			if(@randnum%2=0){
+			if(@randnum%2==0){
 				makeitem 7619,1,strcharinfo(3),killedrid_x,killedrid_y;
 				makeitem 7620,1,strcharinfo(3),killedrid_x,killedrid_y;
 				makeitem 14232,1,strcharinfo(3),killedrid_x,killedrid_y;
 			}
-			if(checknum(@randnum,1,4,5,6,10,30,40,50,20,80,)){
+			if(checknum(@randnum,1,4,5,6,10,30,40,50,20,80)){
 				makeitem 2357,1,strcharinfo(3),killedrid_x,killedrid_y;
 				makeitem 2115,1,strcharinfo(3),killedrid_x,killedrid_y;
 			}
@@ -116,7 +116,7 @@ function	script	adjustdrop	{
 				makeitem 1228,1,strcharinfo(3),killedrid_x,killedrid_y;
 				makeitem 1230,1,strcharinfo(3),killedrid_x,killedrid_y;
 			}
-		}*/
+		}
 		dropitem(killedrid,killedrid_x,killedrid_y);
 	//	if(getmapxy(@mapname$,@mapx,@mapy,1,"+killedrid+")!=(-1)){
 		//	dispbottom "monster "+killedrid+" is killed on "+@mapname$+" "+@mapx+" "+@mapy;

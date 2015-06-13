@@ -679,6 +679,7 @@ void pc_setnewpc(struct map_session_data *sd, uint32 account_id, uint32 char_id,
 */
 int pc_equippoint(struct map_session_data *sd,int n){
 	int ep = 0;
+	int char_id = 0;
 
 	nullpo_ret(sd);
 
@@ -696,6 +697,16 @@ int pc_equippoint(struct map_session_data *sd,int n){
 			(sd->class_&MAPID_UPPERMASK) == MAPID_KAGEROUOBORO))//Kagerou and Oboro can dual wield daggers. [Rytech]
 			return EQP_ARMS;
 	}
+	
+	if( battle_config.reserved_costume_id &&
+ 		sd->status.inventory[n].card[0] == CARD0_CREATE &&
+ 		(char_id = MakeDWord(sd->status.inventory[n].card[2],sd->status.inventory[n].card[3])) == battle_config.reserved_costume_id )
+ 	{ // Costume Item - Converted
+ 		if( ep&EQP_HEAD_TOP ) { ep &= ~EQP_HEAD_TOP; ep |= EQP_COSTUME_HEAD_TOP; }
+ 		if( ep&EQP_HEAD_LOW ) { ep &= ~EQP_HEAD_LOW; ep |= EQP_COSTUME_HEAD_LOW; }
+ 		if( ep&EQP_HEAD_MID ) { ep &= ~EQP_HEAD_MID; ep |= EQP_COSTUME_HEAD_MID; }
+ 	}
+
 	return ep;
 }
 

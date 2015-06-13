@@ -3003,6 +3003,8 @@ int status_calc_pc_(struct map_session_data* sd, enum e_status_calc_opt opt)
 			continue;
 		if (i == EQI_AMMO)
 			continue;
+		if (i == EQI_COSTUME_TOP || i == EQI_COSTUME_MID || i == EQI_COSTUME_LOW) // Costume item edit
+			continue;
 		if (pc_is_same_equip_index((enum equip_index)i, sd->equip_index, index))
 			continue;
 		if (!sd->inventory_data[index])

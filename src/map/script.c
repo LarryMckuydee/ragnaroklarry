@@ -12367,6 +12367,52 @@ BUILDIN_FUNC(warppartner)
 	return SCRIPT_CMD_SUCCESS;
 }
 
+/*==========================================
+ * Costume Items
+ *------------------------------------------*/
+BUILDIN_FUNC(costume)
+{
+	int i = -1, num, ep;
+	TBL_PC *sd;
+
+	num = script_getnum(st,2); // Equip Slot
+	sd = script_rid2sd(st);
+
+	if( sd == NULL )
+		return 0;
+	if( num > 0 && num <= ARRAYLENGTH(equip) )
+		i = pc_checkequip(sd, equip[num - 1]);
+	if( i < 0 )
+		return 0;
+
+	ep = sd->status.inventory[i].equip;
+	if( !(ep&EQP_HEAD_LOW) && !(ep&EQP_HEAD_MID) && !(ep&EQP_HEAD_TOP) )
+		return 0;
+
+	log_pick_pc(sd, LOG_TYPE_SCRIPT, -1, &sd->status.inventory[i]);
+	pc_unequipitem(sd,i,2);
+	clif_delitem(sd,i,1,3);
+	// --------------------------------------------------------------------
+	sd->status.inventory[i].refine = 0;
+	sd->status.inventory[i].attribute = 0;
+	sd->status.inventory[i].card[0] = CARD0_CREATE;
+	sd->status.inventory[i].card[1] = 0;
+	sd->status.inventory[i].card[2] = GetWord(battle_config.reserved_costume_id, 0);
+	sd->status.inventory[i].card[3] = GetWord(battle_config.reserved_costume_id, 1);
+
+	if( ep&EQP_HEAD_TOP ) { ep &= ~EQP_HEAD_TOP; ep |= EQP_COSTUME_HEAD_TOP; }
+	if( ep&EQP_HEAD_LOW ) { ep &= ~EQP_HEAD_LOW; ep |= EQP_COSTUME_HEAD_LOW; }
+	if( ep&EQP_HEAD_MID ) { ep &= ~EQP_HEAD_MID; ep |= EQP_COSTUME_HEAD_MID; }
+	// --------------------------------------------------------------------
+	log_pick_pc(sd, LOG_TYPE_SCRIPT, 1, &sd->status.inventory[i]);
+
+	clif_additem(sd,i,1,0);
+	pc_equipitem(sd,i,ep);
+	clif_misceffect(&sd->bl,3);
+
+	return 0;
+}
+
 /*================================================
  * Script for Displaying MOB Information [Valaris]
  *------------------------------------------------*/
@@ -19730,6 +19776,8 @@ struct script_function buildin_func[] = {
 	BUILDIN_DEF(delspiritball,"i?"),
 	BUILDIN_DEF(countspiritball,"?"),
 	BUILDIN_DEF(mergeitem,"?"),
+	// Costume System
+	BUILDIN_DEF(costume,"i"),
 
 #include "../custom/script_def.inc"
 
