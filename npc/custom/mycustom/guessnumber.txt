@@ -34,11 +34,10 @@
 //= DO NOT REMOVE MY CREDITS AND CLAIM MY WORK AS YOURS 
 //======================================================================
 -	script	guessannouncer	-1,{
-OnHour00:
-OnHour06:
-OnHour12:
-OnHour18:
-OnMinute30:
+OnClock0030:
+OnClock0630:
+OnClock1230:
+OnClock1830:
 announce "Guess the Number: Is starting in 1 Minute in Lutie!",0;
 sleep 30000;
 announce "Guess the Number: Is starting in 30 Seconds in Lutie!",0;
