@@ -1,0 +1,5 @@
+xmas,173,127,2	script	Donation EQ Info	837,{
+OnInit:
+	waitingroom "Donation EQ selling inside",0;
+end;
+}	

@@ -115,7 +115,11 @@ Case 4:
 	}
 }
 
-OnMinute00:
+OnHour03:
+OnHour09:
+OnHour15:
+OnHour21:
+OnMinute30:
 for( set .@i,3; .@i > 0 ; set .@i,.@i - 1 ){
 announce "Monster Wiki Event will take place in Prontera within "+.@i+" Minutes",bc_blue;
 sleep 60000;

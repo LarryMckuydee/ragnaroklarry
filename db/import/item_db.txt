@@ -1,7 +1,7 @@
 // Items Additional Database
 //
 
-32711,Bone_Mask,Bone Mask,4,10,10,100,,2,,2,0xFFFFFFFE,63,2,512,,,1,1888,{},{ bonus bAllStats,3; },{}
+//32711,Bone_Mask,Bone Mask,4,10,10,100,,2,,2,0xFFFFFFFE,63,2,512,,,1,1888,{},{ bonus bAllStats,3; },{}
 // Structure of Database:
 // ID,Name,Name,Type,Price,Sell,Weight,ATK[:MATK],DEF,Range,Slot,Job,Class,Gender,Loc,wLV,eLV[:maxLevel],Refineable,View,{ Script },{ OnEquip_Script },{ OnUnequip_Script }
 //

@@ -18,8 +18,8 @@
 //    Item cost, in cash points (#CASHPOINTS).
 
 
-0,32711,200
-4,32711,200
+//0,32711,200
+//4,32711,200
 
 4,5171,10 //Valkyrie Helm[1] 10
 4,5826,20 //Valkyrie Helmet 20
@@ -104,19 +104,19 @@
 4,5264,10//_2290,1 Australian Flag Hat 
 
 // Usable
-7,13610,10//enriched elu 5 box
-7,13611,10//enriched ori 5 box
-7,12916,2 //Assumptio 10 Scroll Box
-7,13589,9 //Assumptio 50 Scroll Box
-7,13584,2 //Blessing 30 Scroll Box
-7,13576,2 //Agi 30 Scroll Box
-7,12915,1 //Aspersio 10 scroll box
-7,13591,4 //Aspersio 50 Scroll Box
-7,12917,1 //Wind Walk 10 Scroll Box
-7,13595,1 //Wind Walk 50 Scroll Box
-7,13700,1 //Adrenaline Rush Scroll 10 Box
-7,14196,4 //Adrenaline Rush Scroll 50 Box
-7,13995,1 //Speed potion 10 Box
+6,13610,10//enriched elu 5 box
+6,13611,10//enriched ori 5 box
+6,12916,2 //Assumptio 10 Scroll Box
+6,13589,9 //Assumptio 50 Scroll Box
+6,13584,2 //Blessing 30 Scroll Box
+6,13576,2 //Agi 30 Scroll Box
+6,12915,1 //Aspersio 10 scroll box
+6,13591,4 //Aspersio 50 Scroll Box
+6,12917,1 //Wind Walk 10 Scroll Box
+6,13595,1 //Wind Walk 50 Scroll Box
+6,13700,1 //Adrenaline Rush Scroll 10 Box
+6,14196,4 //Adrenaline Rush Scroll 50 Box
+6,13995,1 //Speed potion 10 Box
 //7,12202(10),1 //str 10 dish
 //7,12203(10),1 //agi 10 dish
 //7,12204(10),1 //int 10 dish
@@ -124,13 +124,21 @@
 //7,12206(10),1 //luk 10 dish
 //7,12207(10),1 //vit 10 dish
 //7,14536(20),1 //Abrasive
-7,12103,1 //Bloody Branch
-7,13607,3 //Bubble Gum 5 Box
-7,12412,1 //HE Bubble Gum
+6,13604,2 //Steamed Tongue 30 Box
+6,13592,2 //Steamed Scorpion 30 Box
+6,13596,2 //Dragon Breath Cocktail 30 Box
+6,13572,2 //Hwergelmir's Tonic 30 Box
+6,13574,2 //Nine Tail Dis 30 Box
+6,13578,2 //Stew of Immortality 30 Box
+6,14111,1 //Abrasive 10 Box
+
+6,12103,1 //Bloody Branch
+6,13607,3 //Bubble Gum 5 Box
+6,12412,1 //HE Bubble Gum
 //7,7135(100),1 //Bottle Grenade
 //7,7136(100),1 //Acid Bottle
-7,13973,1 //Poison Bottle 30 Box
-7,13761,2 //Empty Bottle Box 500
-7,7776,2 //Gym pass
-7,13710,18 //Gym pass box
-7,13758,1 //Field Manual 300% Box 20
+6,13973,1 //Poison Bottle 30 Box
+6,13761,2 //Empty Bottle Box 500
+6,7776,2 //Gym pass
+6,13710,18 //Gym pass box
+6,13758,1 //Field Manual 300% Box 20

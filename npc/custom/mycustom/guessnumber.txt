@@ -34,12 +34,16 @@
 //= DO NOT REMOVE MY CREDITS AND CLAIM MY WORK AS YOURS 
 //======================================================================
 -	script	guessannouncer	-1,{
-OnMinute09:
-announce "Guess the Number: Is starting in 1 Minute in Payon!",0;
+OnHour00:
+OnHour06:
+OnHour12:
+OnHour18:
+OnMinute30:
+announce "Guess the Number: Is starting in 1 Minute in Lutie!",0;
 sleep 30000;
-announce "Guess the Number: Is starting in 30 Seconds in Payon!",0;
+announce "Guess the Number: Is starting in 30 Seconds in Lutie!",0;
 sleep 20000;
-announce "Guess the Number: 10 Seconds! Gather up in Payon quick!",0;
+announce "Guess the Number: 10 Seconds! Gather up in Lutie quick!",0;
 sleep 5000;
 announce "Guess the Number: 5 Seconds Left!",0;
 sleep 1000;
@@ -53,7 +57,38 @@ announce "Guess the Number: 1 Second!",0;
 sleep 1000;
 announce "Guess the Number: The event has started!",0;
 enablenpc "guess";
+//set event end time
+initnpctimer;
 end;
+
+OnTimer1740000:
+	announce "Guess the Number going to end in: 1 minute!",0;
+	sleep 30000;
+	announce "Guess the Number going to end in: 30 Second!",0;
+	sleep 25000;
+	announce "Guess the Number going to end in: 5 Second!",0;
+	sleep 1000;
+	announce "Guess the Number going to end in: 4 Second!",0;
+	sleep 1000;
+	announce "Guess the Number going to end in: 3 Second!",0;
+	sleep 1000;
+	announce "Guess the Number going to end in: 2 Second!",0;
+	sleep 1000;
+	announce "Guess the Number going to end in: 1 Second!",0;
+	sleep 1000;
+end;
+
+OnTimer1800000:
+disablenpc "guess";
+set .guessstart,0;
+stopnpctimer;
+announce "No one guessed the number! The event is over!",0;
+end;
+//here
+
+OnInit:
+	disablenpc "guess";
+	end;
 }
 // ==============================================================================
 xmas,136,116,6	script	Guess the Number::guess	500,{
@@ -64,7 +99,7 @@ set @amoun,10;//Change the 10 to your reward amount
 // ==================== End of settings =========================================
 if(.guessstart==1) goto Oneventevent;
 set .usednumber, rand(1,1000);
-announce "Guess the Number: Guess the Number Event Started in Payon!",0;
+announce "Guess the Number: Guess the Number Event Started in Lutie!",0;
 set .guessstart,1;
 Oneventevent:
 mes .@n$;
@@ -87,6 +122,7 @@ getitem @prize,@amoun;
 disablenpc "guess";
 set .guessstart,0;
 close2;
+stopnpctimer "guessannouncer";
 end;
 }
 }

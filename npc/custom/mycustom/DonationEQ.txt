@@ -24,12 +24,12 @@
 // Shop NPCs -- supplying no argument displays entire menu.
 //	callfunc "qshop"{,<shop ID>{,<shop ID>{,...}}};
 //============================================================
-xmas,153,115,4	script	UsableCashshop#xmas	664,{ callfunc "runucashshop"; }
+xmas_in,170,26,6	script	Quest DonationEQ#1	998,{ callfunc "runqshopDonationEQ"; }
 
 
 // Script Core
 //============================================================
--	script	ucash_shop	-1,{ 
+-	script	quest_shopDonationEQ	-1,{ 
 function Add; function Chk; function Slot; function A_An;
 OnInit:
 	freeloop(1);
@@ -64,24 +64,66 @@ OnInit:
 	Add(5027,1,0,0,2252,1,1036,400,7001,50,4052,1);
 	Add(5045,1,0,0,2252,1,1054,450,943,1200);*/
 	
-Add(12202,10,0,0,7227,50);
-Add(12203,10,0,0,7227,50);
-Add(12204,10,0,0,7227,50);
-Add(12205,10,0,0,7227,50);
-Add(12206,10,0,0,7227,50);
-Add(12207,10,0,0,7227,50);
-Add(14536,20,0,0,7227,50);
-Add(7135,100,0,0,7227,50);
-Add(7136,100,0,0,7227,50);
+//Add(5086,1,0,0,1095,1000,2288,1);// Alarm Mask
+//Add(5389,1,10000000,0,5074,1,5043,1,999,100);//,10000000zeny Angel Spirit
+
+//UPPER
+Add(5826,1,30000000,0,5373,1,7510,20,7023,20,7511,300,7566,10,7340,50);//zeny Valkyrie Helmet 20
+Add(5312,1,0,0,2261,1,7094,100,7211,20);// Ayothaya King's Hat [1] 5 
+Add(5137,1,50000000,0,2290,1,5161,1,7047,100,4253,10,7277,300);//zeny Alice Doll[1] 15
+Add(5857,1,30000000,0,5161,1,1030,30,1029,20,7036,20,7003,200,7107,100,7161,100);//zeny Cool FB Hat 15
+Add(5308,1,20000000,0,5147,1,5016,1,7562,5,968,30,7294,10,7291,10);//zeny  Brazil National Flag Hat[1] 15
+Add(5278,1,0,0,5192,5,2215,1,2210,1,969,20,5164,1,985,100,671,3);// Yellow Ribbon 15
+Add(5393,1,20000000,0,5041,1,2210,1,7213,500,994,100);//zeny Love Valentine's Hat 10
+Add(5805,1,50000000,0,2249,1,5161,1,5162,1,969,30,7754,1);//zeny Victorious Coronet 25
+Add(5396,1,15000000,0,5364,1,5133,1,5311,1,7451,10);//zeny Jasper Crest[1] 15
+Add(5423,1,10000000,0,5293,1,5393,1);//zeny I Love China 20
+Add(5293,1,30000000,0,2274,1,7290,10,607,30,12395,30);//zeny Ramen Hat 15
+Add(5376,1,30000000,0,5373,1,5068,1,5074,1,1039,2000,7563,100,7511,350);//zeny Flying Evil Wing[1] 25
+Add(5374,1,50000000,0,5160,1,5161,1,923,1000,750,30,1038,500,7160,1000);//zeny Gigantic Majestic Goat 30
+Add(5518,1,50000000,0,5160,1,5161,1,923,1000,750,30,1038,500,7160,1000);//zeny Gigantic Majestic Goat 30
+Add(5353,1,10000000,0,7086,1,5053,1,969,20);//zeny Hat of the SUn God[1] 35
+
+//MIDDLE
+
+Add(5314,1,3000000,0,5005,1,7095,200,7319,1000);//zeny Hockey Mask 10
+Add(5565,1,5000000,0,5314,1,1035,300,7265,300,7123,200,7451,10);//zeny Dragon Arhat Mask 25
+Add(5135,1,2000000,0,5006,1,2295,1,7563,200);//zeny Cyclop's Eye 5 
+Add(5800,1,3000000,0,5040,1,5102,1,7165,500);//zeny Blush of Gloom 10
+Add(5610,1,10000000,0,5074,1,7562,10);//zeny Ice Wing Ear 10
+Add(5421,1,50000000,0,5074,1,7798,200,7799,200);//zeny Ears of Ifrit 10
+Add(5325,1,20000000,0,5135,1,7300,20);//zeny Robo Eye 10
+Add(5470,1,20000000,0,5135,1,5104,1);//zeny Eye of Darkness 10
+Add(18507,1,5000000,0,2286,1,7292,100);//zeny Elven Ears[1] 20
+Add(2204,1,5000000,0,2260,1,7290,100);//zeny Glasses[1] 20
+Add(2202,1,5000000,0,2201,1,7297,100);//zeny Sunglasses[1] 20
+
+//LOWER
+
+
+Add(5305,1,20000000,0,1476,1,999,50);//zeny Pirate Dagger 5
+Add(5361,1,1000000,0,7216,700);//zeny Gangster Scarf 5
+Add(5775,1,20000000,0,5445,1,529,100,530,200,538,300);//zeny Choco Donut in Mouth 10
+Add(5419,1,3000000,0,2270,3,7100,1000,945,200);//zeny Leaves of Grass 10
+Add(5594,1,20000000,0,5445,1,529,100,530,200,538,300);//zeny Donut In Mouth 10
+Add(5156,1,10000000,0,2218,1,7063,300);//zeny Father's Mask 10
+Add(5362,1,3000000,0,7433,500,618,600);//zeny Ninja Scroll 10
+Add(5377,1,3000000,0,2268,1,7850,3000);//zeny Gentleman's Pipe 15
+Add(5463,1,0,0,5361,1,7446,200,7445,200,7447,200,7448,200);// Rainbow Scarf 15
+Add(5462,1,0,0,5361,1,7106,300,1021,300,7265,100,923,150);// Spiked Scarf 15
+Add(5155,1,10000000,0,5156,1,2240,1,1040,500,7754,1);//zeny Father's White Moustache 15
+
+
+
 // -----------------------------------------------------------
 
-	npcshopdelitem "ucashshop",909;
+	npcshopdelitem "qshopDonationEQ",909;
 	end;
 
 OnMenu:
 	dispbottom "Select one item at a time.";
-	callshop "ucashshop",1;
-	npcshopattach "ucashshop";
+	callshop "qshopDonationEQ",1;
+	npcshopattach "qshopDonationEQ";
 	end;
 
 OnBuyItem:
@@ -164,7 +206,7 @@ function Add {
 		}
 	}
 	copyarray getd(".q_"+getarg(0)+"[0]"),.@j[0],getarraysize(.@j);
-	npcshopadditem "ucashshop",getarg(0),((.ShowZeny)?getarg(2):0);
+	npcshopadditem "qshopDonationEQ",getarg(0),((.ShowZeny)?getarg(2):0);
 	return;
 }
 
@@ -194,15 +236,15 @@ function A_An {
 }
 }
 
-function	script	runucashshop	{
+function	script	runqshopDonationEQ	{
 	deletearray @i[0],getarraysize(@i);
 	for(set .@i,0; .@i<getargcount(); set .@i,.@i+1)
 		set @i[.@i],getarg(.@i);
-	doevent "ucash_shop::OnMenu";
+	doevent "quest_shopDonationEQ::OnMenu";
 	end;
 }
 
 
 // Dummy shop data -- copy as needed.
 //============================================================
--	shop	ucashshop	-1,909:-1
+-	shop	qshopDonationEQ	-1,909:-1

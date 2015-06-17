@@ -123,10 +123,10 @@ OnGMStop:
 
 
 
-OnClock1200:
-OnClock1100:
-OnClock1300:
-OnClock2300:
+OnClock0200:
+OnClock0800:
+OnClock1400:
+OnClock2000:
 	killmonster "poring_w01.gat","All";
 	announce "(Poring Manager) : Poring Catcher Event will start at the moment.",0;
 	sleep 3000;
